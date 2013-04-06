@@ -1,0 +1,170 @@
+\hypertarget{dprot__slave_8c}{\section{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/dprot\-\_\-slave.c File Reference}
+\label{dprot__slave_8c}\index{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/dprot\-\_\-slave.\-c@{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/dprot\-\_\-slave.\-c}}
+}
+{\ttfamily \#include \char`\"{}dprot.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot__slave_8c_a905d476e97295bb55becd22f2f333924}{dprot\-\_\-slave\-\_\-init\-\_\-protocol} (\hyperlink{spec__types_8h_a37f4bf12d02c5a8034ea7842fc44139e}{fn\-\_\-put\-\_\-char} put\-\_\-function, \hyperlink{spec__types_8h_ae27f995dac682449dbaccadf5e5f8f2f}{fn\-\_\-get\-\_\-char} get\-\_\-function)
+\begin{DoxyCompactList}\small\item\em Initializing the slave side protocol of the d\-Prot. \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot__slave_8c_ad4d91e34fef0ad41e2e5b30b795eb3c8}{dprot\-\_\-slave\-\_\-wait\-\_\-for\-\_\-msg} (\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} $\ast$buffer, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} max\-\_\-len)
+\begin{DoxyCompactList}\small\item\em d\-Prot slave waits for data message. This function analyzes the received message types and automatically filters them (sends back arp responses and sync stuff) until a data message arrives. This message is returned to the higher layer. The input 'buffer' and 'max\-\_\-len' take into account the additional 'type', 'length' and 'checking\-\_\-byte' which accumulate to additional 3 bytes. That means that the maximum possible 'payload length' is 256-\/3=253 bytes per transaction. \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot__slave_8c_a4e228c8d4ed029cff858fbf658740fda}{dprot\-\_\-slave\-\_\-send\-\_\-data\-\_\-msg} (\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} $\ast$buffer, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} len)
+\begin{DoxyCompactList}\small\item\em d\-Prot slave send data to the master This function will be always conducted by the slave in order to send back data to the initiator (master) \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot__slave_8c_a217093cf6ad27ebbdf52941a386bb393}{dprot\-\_\-slave\-\_\-send\-\_\-ack} (void)
+\begin{DoxyCompactList}\small\item\em d\-Prot slave sending ack to the master \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot__slave_8c_a24cca4088e15cad41bada0051d1f3d60}{dprot\-\_\-slave\-\_\-send\-\_\-nack} (void)
+\begin{DoxyCompactList}\small\item\em d\-Prot slave sends 'nack' to the master (message error) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslip__channel}{slip\-\_\-channel} \hyperlink{dprot__slave_8c_af3c7da1dd2264604fa32171b48bd1ca4}{slave\-\_\-channel} = \{0\}
+\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot__slave_8c_a4e5a5c45d992c78e937d7ffe3644f949}{slave\-\_\-last\-\_\-parity} = 1
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{dprot__slave_8c_a905d476e97295bb55becd22f2f333924}{\index{dprot\-\_\-slave.\-c@{dprot\-\_\-slave.\-c}!dprot\-\_\-slave\-\_\-init\-\_\-protocol@{dprot\-\_\-slave\-\_\-init\-\_\-protocol}}
+\index{dprot\-\_\-slave\-\_\-init\-\_\-protocol@{dprot\-\_\-slave\-\_\-init\-\_\-protocol}!dprot_slave.c@{dprot\-\_\-slave.\-c}}
+\subsubsection[{dprot\-\_\-slave\-\_\-init\-\_\-protocol}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-slave\-\_\-init\-\_\-protocol (
+\begin{DoxyParamCaption}
+\item[{{\bf fn\-\_\-put\-\_\-char}}]{put\-\_\-function, }
+\item[{{\bf fn\-\_\-get\-\_\-char}}]{get\-\_\-function}
+\end{DoxyParamCaption}
+)}}\label{dprot__slave_8c_a905d476e97295bb55becd22f2f333924}
+
+
+Initializing the slave side protocol of the d\-Prot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em put\-\_\-function} & the 'putchar' function to be assigned to the lower layers \\
+\hline
+{\em get\-\_\-function} & the 'getchar' function to be assigned to the lower layers\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success (D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R), error otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 7 of file dprot\-\_\-slave.\-c.
+
+\hypertarget{dprot__slave_8c_a217093cf6ad27ebbdf52941a386bb393}{\index{dprot\-\_\-slave.\-c@{dprot\-\_\-slave.\-c}!dprot\-\_\-slave\-\_\-send\-\_\-ack@{dprot\-\_\-slave\-\_\-send\-\_\-ack}}
+\index{dprot\-\_\-slave\-\_\-send\-\_\-ack@{dprot\-\_\-slave\-\_\-send\-\_\-ack}!dprot_slave.c@{dprot\-\_\-slave.\-c}}
+\subsubsection[{dprot\-\_\-slave\-\_\-send\-\_\-ack}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-slave\-\_\-send\-\_\-ack (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{dprot__slave_8c_a217093cf6ad27ebbdf52941a386bb393}
+
+
+d\-Prot slave sending ack to the master 
+
+\begin{DoxyReturn}{Returns}
+success (D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R), error otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 132 of file dprot\-\_\-slave.\-c.
+
+\hypertarget{dprot__slave_8c_a4e228c8d4ed029cff858fbf658740fda}{\index{dprot\-\_\-slave.\-c@{dprot\-\_\-slave.\-c}!dprot\-\_\-slave\-\_\-send\-\_\-data\-\_\-msg@{dprot\-\_\-slave\-\_\-send\-\_\-data\-\_\-msg}}
+\index{dprot\-\_\-slave\-\_\-send\-\_\-data\-\_\-msg@{dprot\-\_\-slave\-\_\-send\-\_\-data\-\_\-msg}!dprot_slave.c@{dprot\-\_\-slave.\-c}}
+\subsubsection[{dprot\-\_\-slave\-\_\-send\-\_\-data\-\_\-msg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-slave\-\_\-send\-\_\-data\-\_\-msg (
+\begin{DoxyParamCaption}
+\item[{{\bf uint8\-\_\-t} $\ast$}]{buffer, }
+\item[{{\bf uint8\-\_\-t}}]{len}
+\end{DoxyParamCaption}
+)}}\label{dprot__slave_8c_a4e228c8d4ed029cff858fbf658740fda}
+
+
+d\-Prot slave send data to the master This function will be always conducted by the slave in order to send back data to the initiator (master) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pre-\/allocated} & buffer to be sent to the master \\
+\hline
+{\em the} & number of bytes of buffer to be sent\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+operation result\-: 
+
+D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R -\/ Success 
+
+D\-P\-R\-O\-T\-\_\-\-M\-S\-G\-\_\-\-S\-I\-Z\-E\-\_\-\-E\-R\-R\-O\-R -\/ the requested buffer is too big for a single transaction. 
+\end{DoxyReturn}
+
+
+Definition at line 99 of file dprot\-\_\-slave.\-c.
+
+\hypertarget{dprot__slave_8c_a24cca4088e15cad41bada0051d1f3d60}{\index{dprot\-\_\-slave.\-c@{dprot\-\_\-slave.\-c}!dprot\-\_\-slave\-\_\-send\-\_\-nack@{dprot\-\_\-slave\-\_\-send\-\_\-nack}}
+\index{dprot\-\_\-slave\-\_\-send\-\_\-nack@{dprot\-\_\-slave\-\_\-send\-\_\-nack}!dprot_slave.c@{dprot\-\_\-slave.\-c}}
+\subsubsection[{dprot\-\_\-slave\-\_\-send\-\_\-nack}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-slave\-\_\-send\-\_\-nack (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{dprot__slave_8c_a24cca4088e15cad41bada0051d1f3d60}
+
+
+d\-Prot slave sends 'nack' to the master (message error) 
+
+\begin{DoxyReturn}{Returns}
+success (D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R), error otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 147 of file dprot\-\_\-slave.\-c.
+
+\hypertarget{dprot__slave_8c_ad4d91e34fef0ad41e2e5b30b795eb3c8}{\index{dprot\-\_\-slave.\-c@{dprot\-\_\-slave.\-c}!dprot\-\_\-slave\-\_\-wait\-\_\-for\-\_\-msg@{dprot\-\_\-slave\-\_\-wait\-\_\-for\-\_\-msg}}
+\index{dprot\-\_\-slave\-\_\-wait\-\_\-for\-\_\-msg@{dprot\-\_\-slave\-\_\-wait\-\_\-for\-\_\-msg}!dprot_slave.c@{dprot\-\_\-slave.\-c}}
+\subsubsection[{dprot\-\_\-slave\-\_\-wait\-\_\-for\-\_\-msg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-slave\-\_\-wait\-\_\-for\-\_\-msg (
+\begin{DoxyParamCaption}
+\item[{{\bf uint8\-\_\-t} $\ast$}]{buffer, }
+\item[{{\bf uint8\-\_\-t}}]{max\-\_\-len}
+\end{DoxyParamCaption}
+)}}\label{dprot__slave_8c_ad4d91e34fef0ad41e2e5b30b795eb3c8}
+
+
+d\-Prot slave waits for data message. This function analyzes the received message types and automatically filters them (sends back arp responses and sync stuff) until a data message arrives. This message is returned to the higher layer. The input 'buffer' and 'max\-\_\-len' take into account the additional 'type', 'length' and 'checking\-\_\-byte' which accumulate to additional 3 bytes. That means that the maximum possible 'payload length' is 256-\/3=253 bytes per transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pre-\/allocated} & buffer to store the rx elements \\
+\hline
+{\em maximal} & length of buffer.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the result\-: 
+
+D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R (success) 
+
+D\-P\-R\-O\-T\-\_\-\-F\-R\-A\-M\-I\-N\-G\-\_\-\-E\-R\-R\-O\-R (faming error occured) 
+
+D\-P\-R\-O\-T\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R (the crc/chs/xor didn't match) 
+
+D\-P\-R\-O\-T\-\_\-\-L\-O\-G\-I\-C\-A\-L\-\_\-\-E\-R\-R\-O\-R -\/ sync/length or something else went wrong 
+\end{DoxyReturn}
+
+
+Definition at line 19 of file dprot\-\_\-slave.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{dprot__slave_8c_af3c7da1dd2264604fa32171b48bd1ca4}{\index{dprot\-\_\-slave.\-c@{dprot\-\_\-slave.\-c}!slave\-\_\-channel@{slave\-\_\-channel}}
+\index{slave\-\_\-channel@{slave\-\_\-channel}!dprot_slave.c@{dprot\-\_\-slave.\-c}}
+\subsubsection[{slave\-\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf slip\-\_\-channel} slave\-\_\-channel = \{0\}}}\label{dprot__slave_8c_af3c7da1dd2264604fa32171b48bd1ca4}
+
+
+Definition at line 3 of file dprot\-\_\-slave.\-c.
+
+\hypertarget{dprot__slave_8c_a4e5a5c45d992c78e937d7ffe3644f949}{\index{dprot\-\_\-slave.\-c@{dprot\-\_\-slave.\-c}!slave\-\_\-last\-\_\-parity@{slave\-\_\-last\-\_\-parity}}
+\index{slave\-\_\-last\-\_\-parity@{slave\-\_\-last\-\_\-parity}!dprot_slave.c@{dprot\-\_\-slave.\-c}}
+\subsubsection[{slave\-\_\-last\-\_\-parity}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} slave\-\_\-last\-\_\-parity = 1}}\label{dprot__slave_8c_a4e5a5c45d992c78e937d7ffe3644f949}
+
+
+Definition at line 4 of file dprot\-\_\-slave.\-c.
+

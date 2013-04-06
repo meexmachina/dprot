@@ -1,0 +1,212 @@
+\hypertarget{main_8c}{\section{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/main.c File Reference}
+\label{main_8c}\index{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/main.\-c@{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/main.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ts\-\_\-char\-\_\-queue.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dprot.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}spec\-\_\-types.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{main_8c_a2ae0dc6b8b3f0c472d3a40ca1663bbaf}{drandom} (void)
+\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{main_8c_a4bbac6019a46ce44bc451f45c75a87a1}{generate\-\_\-random\-\_\-message} (\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} $\ast$buffer, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} max\-\_\-len)
+\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{main_8c_afaed7b086b8bbbc974050229fad64a89}{master\-\_\-get\-\_\-char} (\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} to, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} $\ast$cout)
+\item 
+void \hyperlink{main_8c_ab2fcba3407b6c07f49ffa71ee02f51d3}{master\-\_\-put\-\_\-char} (\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} c)
+\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{main_8c_aac8e77fe48309055035d1fe2a2113f73}{slave\-\_\-get\-\_\-char} ()
+\item 
+void \hyperlink{main_8c_a498e0cb2e6c935e769296aeb2cd78b65}{slave\-\_\-put\-\_\-char} (\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} c)
+\item 
+void $\ast$ \hyperlink{main_8c_ad1ddb3ae26460acfe35f8969973ff0e3}{master\-\_\-thread\-\_\-function} (void $\ast$ptr)
+\item 
+void $\ast$ \hyperlink{main_8c_afc851a1473e1f400f51c858a8ec2f8e8}{slave\-\_\-thread\-\_\-function} (void $\ast$ptr)
+\item 
+int \hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structts__queue}{ts\-\_\-queue} $\ast$ \hyperlink{main_8c_a04e7f416f5918e083af41dd74f821187}{in\-\_\-channel} = N\-U\-L\-L
+\item 
+\hyperlink{structts__queue}{ts\-\_\-queue} $\ast$ \hyperlink{main_8c_ae933eae9a4cffa7bf38a06c56d90d380}{out\-\_\-channel} = N\-U\-L\-L
+\item 
+pthread\-\_\-t \hyperlink{main_8c_aec92c1e68b6a22be23b179856217755f}{master\-\_\-thread}
+\item 
+pthread\-\_\-t \hyperlink{main_8c_a9ddbbe80cc8009e4e93c2b6eac313d6d}{slave\-\_\-thread}
+\item 
+unsigned int \hyperlink{main_8c_a06738ef167c28d149d84b280366fbc50}{number\-\_\-if\-\_\-messages\-\_\-to\-\_\-send} = 1000
+\item 
+double \hyperlink{main_8c_aeb089b2aef59048ad58c1b28dbb1d1f6}{out\-\_\-channel\-\_\-ber} = 0.\-001
+\item 
+double \hyperlink{main_8c_a0ad4ff8157b0512ea3d736ccff22fcaa}{in\-\_\-channel\-\_\-ber} = 0.\-00
+\item 
+int \hyperlink{main_8c_ade7224f7f710766a20379dd19924b533}{global\-\_\-count} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{main_8c_a2ae0dc6b8b3f0c472d3a40ca1663bbaf}{\index{main.\-c@{main.\-c}!drandom@{drandom}}
+\index{drandom@{drandom}!main.c@{main.\-c}}
+\subsubsection[{drandom}]{\setlength{\rightskip}{0pt plus 5cm}double drandom (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{main_8c_a2ae0dc6b8b3f0c472d3a40ca1663bbaf}
+
+
+Definition at line 21 of file main.\-c.
+
+\hypertarget{main_8c_a4bbac6019a46ce44bc451f45c75a87a1}{\index{main.\-c@{main.\-c}!generate\-\_\-random\-\_\-message@{generate\-\_\-random\-\_\-message}}
+\index{generate\-\_\-random\-\_\-message@{generate\-\_\-random\-\_\-message}!main.c@{main.\-c}}
+\subsubsection[{generate\-\_\-random\-\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} generate\-\_\-random\-\_\-message (
+\begin{DoxyParamCaption}
+\item[{{\bf uint8\-\_\-t} $\ast$}]{buffer, }
+\item[{{\bf uint8\-\_\-t}}]{max\-\_\-len}
+\end{DoxyParamCaption}
+)}}\label{main_8c_a4bbac6019a46ce44bc451f45c75a87a1}
+
+
+Definition at line 29 of file main.\-c.
+
+\hypertarget{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{main.\-c@{main.\-c}!main@{main}}
+\index{main@{main}!main.c@{main.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+Definition at line 167 of file main.\-c.
+
+\hypertarget{main_8c_afaed7b086b8bbbc974050229fad64a89}{\index{main.\-c@{main.\-c}!master\-\_\-get\-\_\-char@{master\-\_\-get\-\_\-char}}
+\index{master\-\_\-get\-\_\-char@{master\-\_\-get\-\_\-char}!main.c@{main.\-c}}
+\subsubsection[{master\-\_\-get\-\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} master\-\_\-get\-\_\-char (
+\begin{DoxyParamCaption}
+\item[{{\bf uint8\-\_\-t}}]{to, }
+\item[{{\bf uint8\-\_\-t} $\ast$}]{cout}
+\end{DoxyParamCaption}
+)}}\label{main_8c_afaed7b086b8bbbc974050229fad64a89}
+
+
+Definition at line 46 of file main.\-c.
+
+\hypertarget{main_8c_ab2fcba3407b6c07f49ffa71ee02f51d3}{\index{main.\-c@{main.\-c}!master\-\_\-put\-\_\-char@{master\-\_\-put\-\_\-char}}
+\index{master\-\_\-put\-\_\-char@{master\-\_\-put\-\_\-char}!main.c@{main.\-c}}
+\subsubsection[{master\-\_\-put\-\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}void master\-\_\-put\-\_\-char (
+\begin{DoxyParamCaption}
+\item[{{\bf uint8\-\_\-t}}]{c}
+\end{DoxyParamCaption}
+)}}\label{main_8c_ab2fcba3407b6c07f49ffa71ee02f51d3}
+
+
+Definition at line 64 of file main.\-c.
+
+\hypertarget{main_8c_ad1ddb3ae26460acfe35f8969973ff0e3}{\index{main.\-c@{main.\-c}!master\-\_\-thread\-\_\-function@{master\-\_\-thread\-\_\-function}}
+\index{master\-\_\-thread\-\_\-function@{master\-\_\-thread\-\_\-function}!main.c@{main.\-c}}
+\subsubsection[{master\-\_\-thread\-\_\-function}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ master\-\_\-thread\-\_\-function (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}}\label{main_8c_ad1ddb3ae26460acfe35f8969973ff0e3}
+
+
+Definition at line 93 of file main.\-c.
+
+\hypertarget{main_8c_aac8e77fe48309055035d1fe2a2113f73}{\index{main.\-c@{main.\-c}!slave\-\_\-get\-\_\-char@{slave\-\_\-get\-\_\-char}}
+\index{slave\-\_\-get\-\_\-char@{slave\-\_\-get\-\_\-char}!main.c@{main.\-c}}
+\subsubsection[{slave\-\_\-get\-\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} slave\-\_\-get\-\_\-char (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{main_8c_aac8e77fe48309055035d1fe2a2113f73}
+
+
+Definition at line 73 of file main.\-c.
+
+\hypertarget{main_8c_a498e0cb2e6c935e769296aeb2cd78b65}{\index{main.\-c@{main.\-c}!slave\-\_\-put\-\_\-char@{slave\-\_\-put\-\_\-char}}
+\index{slave\-\_\-put\-\_\-char@{slave\-\_\-put\-\_\-char}!main.c@{main.\-c}}
+\subsubsection[{slave\-\_\-put\-\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}void slave\-\_\-put\-\_\-char (
+\begin{DoxyParamCaption}
+\item[{{\bf uint8\-\_\-t}}]{c}
+\end{DoxyParamCaption}
+)}}\label{main_8c_a498e0cb2e6c935e769296aeb2cd78b65}
+
+
+Definition at line 83 of file main.\-c.
+
+\hypertarget{main_8c_afc851a1473e1f400f51c858a8ec2f8e8}{\index{main.\-c@{main.\-c}!slave\-\_\-thread\-\_\-function@{slave\-\_\-thread\-\_\-function}}
+\index{slave\-\_\-thread\-\_\-function@{slave\-\_\-thread\-\_\-function}!main.c@{main.\-c}}
+\subsubsection[{slave\-\_\-thread\-\_\-function}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ slave\-\_\-thread\-\_\-function (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}}\label{main_8c_afc851a1473e1f400f51c858a8ec2f8e8}
+
+
+Definition at line 135 of file main.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{main_8c_ade7224f7f710766a20379dd19924b533}{\index{main.\-c@{main.\-c}!global\-\_\-count@{global\-\_\-count}}
+\index{global\-\_\-count@{global\-\_\-count}!main.c@{main.\-c}}
+\subsubsection[{global\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}int global\-\_\-count = 0}}\label{main_8c_ade7224f7f710766a20379dd19924b533}
+
+
+Definition at line 17 of file main.\-c.
+
+\hypertarget{main_8c_a04e7f416f5918e083af41dd74f821187}{\index{main.\-c@{main.\-c}!in\-\_\-channel@{in\-\_\-channel}}
+\index{in\-\_\-channel@{in\-\_\-channel}!main.c@{main.\-c}}
+\subsubsection[{in\-\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ts\-\_\-queue}$\ast$ in\-\_\-channel = N\-U\-L\-L}}\label{main_8c_a04e7f416f5918e083af41dd74f821187}
+
+
+Definition at line 10 of file main.\-c.
+
+\hypertarget{main_8c_a0ad4ff8157b0512ea3d736ccff22fcaa}{\index{main.\-c@{main.\-c}!in\-\_\-channel\-\_\-ber@{in\-\_\-channel\-\_\-ber}}
+\index{in\-\_\-channel\-\_\-ber@{in\-\_\-channel\-\_\-ber}!main.c@{main.\-c}}
+\subsubsection[{in\-\_\-channel\-\_\-ber}]{\setlength{\rightskip}{0pt plus 5cm}double in\-\_\-channel\-\_\-ber = 0.\-00}}\label{main_8c_a0ad4ff8157b0512ea3d736ccff22fcaa}
+
+
+Definition at line 16 of file main.\-c.
+
+\hypertarget{main_8c_aec92c1e68b6a22be23b179856217755f}{\index{main.\-c@{main.\-c}!master\-\_\-thread@{master\-\_\-thread}}
+\index{master\-\_\-thread@{master\-\_\-thread}!main.c@{main.\-c}}
+\subsubsection[{master\-\_\-thread}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-t master\-\_\-thread}}\label{main_8c_aec92c1e68b6a22be23b179856217755f}
+
+
+Definition at line 12 of file main.\-c.
+
+\hypertarget{main_8c_a06738ef167c28d149d84b280366fbc50}{\index{main.\-c@{main.\-c}!number\-\_\-if\-\_\-messages\-\_\-to\-\_\-send@{number\-\_\-if\-\_\-messages\-\_\-to\-\_\-send}}
+\index{number\-\_\-if\-\_\-messages\-\_\-to\-\_\-send@{number\-\_\-if\-\_\-messages\-\_\-to\-\_\-send}!main.c@{main.\-c}}
+\subsubsection[{number\-\_\-if\-\_\-messages\-\_\-to\-\_\-send}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int number\-\_\-if\-\_\-messages\-\_\-to\-\_\-send = 1000}}\label{main_8c_a06738ef167c28d149d84b280366fbc50}
+
+
+Definition at line 14 of file main.\-c.
+
+\hypertarget{main_8c_ae933eae9a4cffa7bf38a06c56d90d380}{\index{main.\-c@{main.\-c}!out\-\_\-channel@{out\-\_\-channel}}
+\index{out\-\_\-channel@{out\-\_\-channel}!main.c@{main.\-c}}
+\subsubsection[{out\-\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ts\-\_\-queue}$\ast$ out\-\_\-channel = N\-U\-L\-L}}\label{main_8c_ae933eae9a4cffa7bf38a06c56d90d380}
+
+
+Definition at line 11 of file main.\-c.
+
+\hypertarget{main_8c_aeb089b2aef59048ad58c1b28dbb1d1f6}{\index{main.\-c@{main.\-c}!out\-\_\-channel\-\_\-ber@{out\-\_\-channel\-\_\-ber}}
+\index{out\-\_\-channel\-\_\-ber@{out\-\_\-channel\-\_\-ber}!main.c@{main.\-c}}
+\subsubsection[{out\-\_\-channel\-\_\-ber}]{\setlength{\rightskip}{0pt plus 5cm}double out\-\_\-channel\-\_\-ber = 0.\-001}}\label{main_8c_aeb089b2aef59048ad58c1b28dbb1d1f6}
+
+
+Definition at line 15 of file main.\-c.
+
+\hypertarget{main_8c_a9ddbbe80cc8009e4e93c2b6eac313d6d}{\index{main.\-c@{main.\-c}!slave\-\_\-thread@{slave\-\_\-thread}}
+\index{slave\-\_\-thread@{slave\-\_\-thread}!main.c@{main.\-c}}
+\subsubsection[{slave\-\_\-thread}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-t slave\-\_\-thread}}\label{main_8c_a9ddbbe80cc8009e4e93c2b6eac313d6d}
+
+
+Definition at line 13 of file main.\-c.
+

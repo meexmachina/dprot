@@ -1,0 +1,187 @@
+\hypertarget{dprot__master_8c}{\section{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/dprot\-\_\-master.c File Reference}
+\label{dprot__master_8c}\index{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/dprot\-\_\-master.\-c@{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/dprot\-\_\-master.\-c}}
+}
+{\ttfamily \#include \char`\"{}dprot.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot__master_8c_a11d0af51980a64b65ad6180e0efd7fc0}{dprot\-\_\-master\-\_\-init\-\_\-protocol} (\hyperlink{spec__types_8h_a37f4bf12d02c5a8034ea7842fc44139e}{fn\-\_\-put\-\_\-char} put\-\_\-function, \hyperlink{spec__types_8h_ace37bdc988d620cf5545d6be5c8df9a6}{fn\-\_\-get\-\_\-char\-\_\-to} get\-\_\-function)
+\begin{DoxyCompactList}\small\item\em Initializing the master side protocol of the d\-Prot. \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot__master_8c_a6aa9db5d360ad0c94b2becc3825dd06e}{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-data} (\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} $\ast$buffer, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} max\-\_\-len)
+\begin{DoxyCompactList}\small\item\em master node waiting a data message from the slave. \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot__master_8c_a617f56a1395659cd976f4b6b17ac83f8}{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-ack\-\_\-nack} (void)
+\begin{DoxyCompactList}\small\item\em master node waiting for the ack/nack message from the slave \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot__master_8c_a56d459bd5ac67a744b72d63eae4f4b8e}{dprot\-\_\-master\-\_\-send\-\_\-data\-\_\-msg} (\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} $\ast$buffer, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} len)
+\begin{DoxyCompactList}\small\item\em d\-Prot master send data to the slave \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot__master_8c_aef09ce7327a2de0354f758044c0ce218}{dprot\-\_\-master\-\_\-send\-\_\-ping} (void)
+\begin{DoxyCompactList}\small\item\em d\-Prot master send ping message to the slave \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot__master_8c_a4fe385c2f80d9312dae44952f99d62d9}{dprot\-\_\-master\-\_\-send\-\_\-sync} (void)
+\begin{DoxyCompactList}\small\item\em d\-Prot master send sync message to the slave \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structslip__channel}{slip\-\_\-channel} \hyperlink{dprot__master_8c_a2b9a9af17284f3d2559b35583d44bdce}{master\-\_\-channel} = \{0\}
+\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot__master_8c_a37bc993c2d52c0b435dd09ba6afd17a3}{master\-\_\-last\-\_\-parity} = 1
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{dprot__master_8c_a11d0af51980a64b65ad6180e0efd7fc0}{\index{dprot\-\_\-master.\-c@{dprot\-\_\-master.\-c}!dprot\-\_\-master\-\_\-init\-\_\-protocol@{dprot\-\_\-master\-\_\-init\-\_\-protocol}}
+\index{dprot\-\_\-master\-\_\-init\-\_\-protocol@{dprot\-\_\-master\-\_\-init\-\_\-protocol}!dprot_master.c@{dprot\-\_\-master.\-c}}
+\subsubsection[{dprot\-\_\-master\-\_\-init\-\_\-protocol}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-master\-\_\-init\-\_\-protocol (
+\begin{DoxyParamCaption}
+\item[{{\bf fn\-\_\-put\-\_\-char}}]{put\-\_\-function, }
+\item[{{\bf fn\-\_\-get\-\_\-char\-\_\-to}}]{get\-\_\-function}
+\end{DoxyParamCaption}
+)}}\label{dprot__master_8c_a11d0af51980a64b65ad6180e0efd7fc0}
+
+
+Initializing the master side protocol of the d\-Prot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em put\-\_\-function} & the 'putchar' function to be assigned to the lower layers \\
+\hline
+{\em get\-\_\-function} & the 'getchar' function to be assigned to the lower layers\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success (D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R), error otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 7 of file dprot\-\_\-master.\-c.
+
+\hypertarget{dprot__master_8c_a56d459bd5ac67a744b72d63eae4f4b8e}{\index{dprot\-\_\-master.\-c@{dprot\-\_\-master.\-c}!dprot\-\_\-master\-\_\-send\-\_\-data\-\_\-msg@{dprot\-\_\-master\-\_\-send\-\_\-data\-\_\-msg}}
+\index{dprot\-\_\-master\-\_\-send\-\_\-data\-\_\-msg@{dprot\-\_\-master\-\_\-send\-\_\-data\-\_\-msg}!dprot_master.c@{dprot\-\_\-master.\-c}}
+\subsubsection[{dprot\-\_\-master\-\_\-send\-\_\-data\-\_\-msg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-master\-\_\-send\-\_\-data\-\_\-msg (
+\begin{DoxyParamCaption}
+\item[{{\bf uint8\-\_\-t} $\ast$}]{buffer, }
+\item[{{\bf uint8\-\_\-t}}]{len}
+\end{DoxyParamCaption}
+)}}\label{dprot__master_8c_a56d459bd5ac67a744b72d63eae4f4b8e}
+
+
+d\-Prot master send data to the slave 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pre-\/allocated} & buffer to be sent to the slave \\
+\hline
+{\em the} & number of bytes of buffer to be sent\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+operation result\-: 
+
+D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R -\/ Success 
+
+D\-P\-R\-O\-T\-\_\-\-M\-S\-G\-\_\-\-S\-I\-Z\-E\-\_\-\-E\-R\-R\-O\-R -\/ the requested buffer is too big for a single transaction. 
+\end{DoxyReturn}
+
+
+Definition at line 150 of file dprot\-\_\-master.\-c.
+
+\hypertarget{dprot__master_8c_aef09ce7327a2de0354f758044c0ce218}{\index{dprot\-\_\-master.\-c@{dprot\-\_\-master.\-c}!dprot\-\_\-master\-\_\-send\-\_\-ping@{dprot\-\_\-master\-\_\-send\-\_\-ping}}
+\index{dprot\-\_\-master\-\_\-send\-\_\-ping@{dprot\-\_\-master\-\_\-send\-\_\-ping}!dprot_master.c@{dprot\-\_\-master.\-c}}
+\subsubsection[{dprot\-\_\-master\-\_\-send\-\_\-ping}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-master\-\_\-send\-\_\-ping (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{dprot__master_8c_aef09ce7327a2de0354f758044c0ce218}
+
+
+d\-Prot master send ping message to the slave 
+
+\begin{DoxyReturn}{Returns}
+success (D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R), error otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 195 of file dprot\-\_\-master.\-c.
+
+\hypertarget{dprot__master_8c_a4fe385c2f80d9312dae44952f99d62d9}{\index{dprot\-\_\-master.\-c@{dprot\-\_\-master.\-c}!dprot\-\_\-master\-\_\-send\-\_\-sync@{dprot\-\_\-master\-\_\-send\-\_\-sync}}
+\index{dprot\-\_\-master\-\_\-send\-\_\-sync@{dprot\-\_\-master\-\_\-send\-\_\-sync}!dprot_master.c@{dprot\-\_\-master.\-c}}
+\subsubsection[{dprot\-\_\-master\-\_\-send\-\_\-sync}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-master\-\_\-send\-\_\-sync (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{dprot__master_8c_a4fe385c2f80d9312dae44952f99d62d9}
+
+
+d\-Prot master send sync message to the slave 
+
+\begin{DoxyReturn}{Returns}
+success (D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R), error otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 226 of file dprot\-\_\-master.\-c.
+
+\hypertarget{dprot__master_8c_a617f56a1395659cd976f4b6b17ac83f8}{\index{dprot\-\_\-master.\-c@{dprot\-\_\-master.\-c}!dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-ack\-\_\-nack@{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-ack\-\_\-nack}}
+\index{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-ack\-\_\-nack@{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-ack\-\_\-nack}!dprot_master.c@{dprot\-\_\-master.\-c}}
+\subsubsection[{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-ack\-\_\-nack}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-ack\-\_\-nack (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{dprot__master_8c_a617f56a1395659cd976f4b6b17ac83f8}
+
+
+master node waiting for the ack/nack message from the slave 
+
+\begin{DoxyReturn}{Returns}
+result\-: 
+
+D\-P\-R\-O\-T\-\_\-\-A\-C\-K\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D -\/ ack was received 
+
+D\-P\-R\-O\-T\-\_\-\-N\-A\-C\-K\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D -\/ nack was received 
+
+D\-P\-R\-O\-T\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R -\/ the crc/chs/xor didn't match or unexpected type of msg was received 
+\end{DoxyReturn}
+
+
+Definition at line 88 of file dprot\-\_\-master.\-c.
+
+\hypertarget{dprot__master_8c_a6aa9db5d360ad0c94b2becc3825dd06e}{\index{dprot\-\_\-master.\-c@{dprot\-\_\-master.\-c}!dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-data@{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-data}}
+\index{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-data@{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-data}!dprot_master.c@{dprot\-\_\-master.\-c}}
+\subsubsection[{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{{\bf uint8\-\_\-t} $\ast$}]{buffer, }
+\item[{{\bf uint8\-\_\-t}}]{max\-\_\-len}
+\end{DoxyParamCaption}
+)}}\label{dprot__master_8c_a6aa9db5d360ad0c94b2becc3825dd06e}
+
+
+master node waiting a data message from the slave. 
+
+It can happen adter the master intiated data request transactions. \begin{DoxyReturn}{Returns}
+result\-: 
+
+D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R -\/ Success  D\-P\-R\-O\-T\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D -\/ data came corrupted -\/ length is too big 
+
+D\-P\-R\-O\-T\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R -\/ checking error 
+
+D\-P\-R\-O\-T\-\_\-\-L\-O\-G\-I\-C\-A\-L\-\_\-\-E\-R\-R\-O\-R -\/ the incoming frame didn't contain data type of message 
+\end{DoxyReturn}
+
+
+Definition at line 19 of file dprot\-\_\-master.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{dprot__master_8c_a2b9a9af17284f3d2559b35583d44bdce}{\index{dprot\-\_\-master.\-c@{dprot\-\_\-master.\-c}!master\-\_\-channel@{master\-\_\-channel}}
+\index{master\-\_\-channel@{master\-\_\-channel}!dprot_master.c@{dprot\-\_\-master.\-c}}
+\subsubsection[{master\-\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf slip\-\_\-channel} master\-\_\-channel = \{0\}}}\label{dprot__master_8c_a2b9a9af17284f3d2559b35583d44bdce}
+
+
+Definition at line 3 of file dprot\-\_\-master.\-c.
+
+\hypertarget{dprot__master_8c_a37bc993c2d52c0b435dd09ba6afd17a3}{\index{dprot\-\_\-master.\-c@{dprot\-\_\-master.\-c}!master\-\_\-last\-\_\-parity@{master\-\_\-last\-\_\-parity}}
+\index{master\-\_\-last\-\_\-parity@{master\-\_\-last\-\_\-parity}!dprot_master.c@{dprot\-\_\-master.\-c}}
+\subsubsection[{master\-\_\-last\-\_\-parity}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} master\-\_\-last\-\_\-parity = 1}}\label{dprot__master_8c_a37bc993c2d52c0b435dd09ba6afd17a3}
+
+
+Definition at line 4 of file dprot\-\_\-master.\-c.
+
