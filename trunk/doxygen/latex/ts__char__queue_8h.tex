@@ -1,0 +1,114 @@
+\hypertarget{ts__char__queue_8h}{\section{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/ts\-\_\-char\-\_\-queue.h File Reference}
+\label{ts__char__queue_8h}\index{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/ts\-\_\-char\-\_\-queue.\-h@{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/ts\-\_\-char\-\_\-queue.\-h}}
+}
+{\ttfamily \#include \char`\"{}spec\-\_\-types.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$pthread.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structts__queue}{ts\-\_\-queue}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ts__char__queue_8h_ac81a9970697c6f5f535f3eaf9d50b207}{T\-S\-Q\-\_\-\-M\-A\-X\-\_\-\-S\-I\-Z\-E}~128
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structts__queue}{ts\-\_\-queue} $\ast$ \hyperlink{ts__char__queue_8h_a48c2722d8ac274e65e8523ba05971d49}{tsq\-\_\-create} (void)
+\item 
+void \hyperlink{ts__char__queue_8h_a614a39aa59dcc8f79f47b5a67831f56d}{tsq\-\_\-delete} (\hyperlink{structts__queue}{ts\-\_\-queue} $\ast$q)
+\item 
+int \hyperlink{ts__char__queue_8h_abd1f852ad1cba0a48ceab07619bf8f89}{tsq\-\_\-is\-\_\-full} (\hyperlink{structts__queue}{ts\-\_\-queue} $\ast$q)
+\item 
+int \hyperlink{ts__char__queue_8h_a63c33f1e8ae270a613250e41f0487810}{tsq\-\_\-pop\-\_\-item} (\hyperlink{structts__queue}{ts\-\_\-queue} $\ast$q, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} $\ast$c)
+\item 
+void \hyperlink{ts__char__queue_8h_a64ff6243259444accff998dbc84d15eb}{tsq\-\_\-push\-\_\-item} (\hyperlink{structts__queue}{ts\-\_\-queue} $\ast$q, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} item)
+\item 
+int \hyperlink{ts__char__queue_8h_ada6e9c0e010eedf8ea3d5478a5fd8ed6}{tsq\-\_\-empty} (\hyperlink{structts__queue}{ts\-\_\-queue} $\ast$q)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ts__char__queue_8h_ac81a9970697c6f5f535f3eaf9d50b207}{\index{ts\-\_\-char\-\_\-queue.\-h@{ts\-\_\-char\-\_\-queue.\-h}!T\-S\-Q\-\_\-\-M\-A\-X\-\_\-\-S\-I\-Z\-E@{T\-S\-Q\-\_\-\-M\-A\-X\-\_\-\-S\-I\-Z\-E}}
+\index{T\-S\-Q\-\_\-\-M\-A\-X\-\_\-\-S\-I\-Z\-E@{T\-S\-Q\-\_\-\-M\-A\-X\-\_\-\-S\-I\-Z\-E}!ts_char_queue.h@{ts\-\_\-char\-\_\-queue.\-h}}
+\subsubsection[{T\-S\-Q\-\_\-\-M\-A\-X\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-S\-Q\-\_\-\-M\-A\-X\-\_\-\-S\-I\-Z\-E~128}}\label{ts__char__queue_8h_ac81a9970697c6f5f535f3eaf9d50b207}
+
+
+Definition at line 10 of file ts\-\_\-char\-\_\-queue.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{ts__char__queue_8h_a48c2722d8ac274e65e8523ba05971d49}{\index{ts\-\_\-char\-\_\-queue.\-h@{ts\-\_\-char\-\_\-queue.\-h}!tsq\-\_\-create@{tsq\-\_\-create}}
+\index{tsq\-\_\-create@{tsq\-\_\-create}!ts_char_queue.h@{ts\-\_\-char\-\_\-queue.\-h}}
+\subsubsection[{tsq\-\_\-create}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ts\-\_\-queue}$\ast$ tsq\-\_\-create (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ts__char__queue_8h_a48c2722d8ac274e65e8523ba05971d49}
+
+
+Definition at line 5 of file ts\-\_\-char\-\_\-queue.\-c.
+
+\hypertarget{ts__char__queue_8h_a614a39aa59dcc8f79f47b5a67831f56d}{\index{ts\-\_\-char\-\_\-queue.\-h@{ts\-\_\-char\-\_\-queue.\-h}!tsq\-\_\-delete@{tsq\-\_\-delete}}
+\index{tsq\-\_\-delete@{tsq\-\_\-delete}!ts_char_queue.h@{ts\-\_\-char\-\_\-queue.\-h}}
+\subsubsection[{tsq\-\_\-delete}]{\setlength{\rightskip}{0pt plus 5cm}void tsq\-\_\-delete (
+\begin{DoxyParamCaption}
+\item[{{\bf ts\-\_\-queue} $\ast$}]{q}
+\end{DoxyParamCaption}
+)}}\label{ts__char__queue_8h_a614a39aa59dcc8f79f47b5a67831f56d}
+
+
+Definition at line 31 of file ts\-\_\-char\-\_\-queue.\-c.
+
+\hypertarget{ts__char__queue_8h_ada6e9c0e010eedf8ea3d5478a5fd8ed6}{\index{ts\-\_\-char\-\_\-queue.\-h@{ts\-\_\-char\-\_\-queue.\-h}!tsq\-\_\-empty@{tsq\-\_\-empty}}
+\index{tsq\-\_\-empty@{tsq\-\_\-empty}!ts_char_queue.h@{ts\-\_\-char\-\_\-queue.\-h}}
+\subsubsection[{tsq\-\_\-empty}]{\setlength{\rightskip}{0pt plus 5cm}int tsq\-\_\-empty (
+\begin{DoxyParamCaption}
+\item[{{\bf ts\-\_\-queue} $\ast$}]{q}
+\end{DoxyParamCaption}
+)}}\label{ts__char__queue_8h_ada6e9c0e010eedf8ea3d5478a5fd8ed6}
+
+
+Definition at line 95 of file ts\-\_\-char\-\_\-queue.\-c.
+
+\hypertarget{ts__char__queue_8h_abd1f852ad1cba0a48ceab07619bf8f89}{\index{ts\-\_\-char\-\_\-queue.\-h@{ts\-\_\-char\-\_\-queue.\-h}!tsq\-\_\-is\-\_\-full@{tsq\-\_\-is\-\_\-full}}
+\index{tsq\-\_\-is\-\_\-full@{tsq\-\_\-is\-\_\-full}!ts_char_queue.h@{ts\-\_\-char\-\_\-queue.\-h}}
+\subsubsection[{tsq\-\_\-is\-\_\-full}]{\setlength{\rightskip}{0pt plus 5cm}int tsq\-\_\-is\-\_\-full (
+\begin{DoxyParamCaption}
+\item[{{\bf ts\-\_\-queue} $\ast$}]{q}
+\end{DoxyParamCaption}
+)}}\label{ts__char__queue_8h_abd1f852ad1cba0a48ceab07619bf8f89}
+
+
+Definition at line 42 of file ts\-\_\-char\-\_\-queue.\-c.
+
+\hypertarget{ts__char__queue_8h_a63c33f1e8ae270a613250e41f0487810}{\index{ts\-\_\-char\-\_\-queue.\-h@{ts\-\_\-char\-\_\-queue.\-h}!tsq\-\_\-pop\-\_\-item@{tsq\-\_\-pop\-\_\-item}}
+\index{tsq\-\_\-pop\-\_\-item@{tsq\-\_\-pop\-\_\-item}!ts_char_queue.h@{ts\-\_\-char\-\_\-queue.\-h}}
+\subsubsection[{tsq\-\_\-pop\-\_\-item}]{\setlength{\rightskip}{0pt plus 5cm}int tsq\-\_\-pop\-\_\-item (
+\begin{DoxyParamCaption}
+\item[{{\bf ts\-\_\-queue} $\ast$}]{q, }
+\item[{{\bf uint8\-\_\-t} $\ast$}]{c}
+\end{DoxyParamCaption}
+)}}\label{ts__char__queue_8h_a63c33f1e8ae270a613250e41f0487810}
+
+
+Definition at line 53 of file ts\-\_\-char\-\_\-queue.\-c.
+
+\hypertarget{ts__char__queue_8h_a64ff6243259444accff998dbc84d15eb}{\index{ts\-\_\-char\-\_\-queue.\-h@{ts\-\_\-char\-\_\-queue.\-h}!tsq\-\_\-push\-\_\-item@{tsq\-\_\-push\-\_\-item}}
+\index{tsq\-\_\-push\-\_\-item@{tsq\-\_\-push\-\_\-item}!ts_char_queue.h@{ts\-\_\-char\-\_\-queue.\-h}}
+\subsubsection[{tsq\-\_\-push\-\_\-item}]{\setlength{\rightskip}{0pt plus 5cm}void tsq\-\_\-push\-\_\-item (
+\begin{DoxyParamCaption}
+\item[{{\bf ts\-\_\-queue} $\ast$}]{q, }
+\item[{{\bf uint8\-\_\-t}}]{item}
+\end{DoxyParamCaption}
+)}}\label{ts__char__queue_8h_a64ff6243259444accff998dbc84d15eb}
+
+
+Definition at line 74 of file ts\-\_\-char\-\_\-queue.\-c.
+

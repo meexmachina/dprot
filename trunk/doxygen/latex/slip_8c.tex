@@ -1,0 +1,133 @@
+\hypertarget{slip_8c}{\section{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/slip.c File Reference}
+\label{slip_8c}\index{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/slip.\-c@{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/slip.\-c}}
+}
+{\ttfamily \#include \char`\"{}slip.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{slip_8c_a5081b9c798345b3e353802f30bcbe0c2}{slip\-\_\-init} (\hyperlink{spec__types_8h_a37f4bf12d02c5a8034ea7842fc44139e}{fn\-\_\-put\-\_\-char} put\-\_\-function, \hyperlink{spec__types_8h_ae27f995dac682449dbaccadf5e5f8f2f}{fn\-\_\-get\-\_\-char} get\-\_\-function, \hyperlink{spec__types_8h_ace37bdc988d620cf5545d6be5c8df9a6}{fn\-\_\-get\-\_\-char\-\_\-to} get\-\_\-function\-\_\-to, \hyperlink{structslip__channel}{slip\-\_\-channel} $\ast$ch)
+\begin{DoxyCompactList}\small\item\em initialize slip datalink layer \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{slip_8c_a35baf5d5a5d2756a0caad9764c2dd095}{slip\-\_\-rx} (\hyperlink{structslip__channel}{slip\-\_\-channel} $\ast$ch, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} $\ast$buffer, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} len)
+\begin{DoxyCompactList}\small\item\em receive data from the channel \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{slip_8c_a2194c1a8981582e05dd0201145504c59}{slip\-\_\-tx} (\hyperlink{structslip__channel}{slip\-\_\-channel} $\ast$ch, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} $\ast$buffer, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} len, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} start\-\_\-end)
+\begin{DoxyCompactList}\small\item\em Send data to the channel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{spec__types_8h_a37f4bf12d02c5a8034ea7842fc44139e}{fn\-\_\-put\-\_\-char} \hyperlink{slip_8c_aa55cda0bc53118e4d95ae9667d08cf65}{slip\-\_\-put\-\_\-char} = N\-U\-L\-L
+\item 
+\hyperlink{spec__types_8h_ae27f995dac682449dbaccadf5e5f8f2f}{fn\-\_\-get\-\_\-char} \hyperlink{slip_8c_aa20c484f29bf3d3ab7b1d725acd1d47b}{slip\-\_\-get\-\_\-char} = N\-U\-L\-L
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{slip_8c_a5081b9c798345b3e353802f30bcbe0c2}{\index{slip.\-c@{slip.\-c}!slip\-\_\-init@{slip\-\_\-init}}
+\index{slip\-\_\-init@{slip\-\_\-init}!slip.c@{slip.\-c}}
+\subsubsection[{slip\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} slip\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf fn\-\_\-put\-\_\-char}}]{put\-\_\-function, }
+\item[{{\bf fn\-\_\-get\-\_\-char}}]{get\-\_\-function, }
+\item[{{\bf fn\-\_\-get\-\_\-char\-\_\-to}}]{get\-\_\-function\-\_\-to, }
+\item[{{\bf slip\-\_\-channel} $\ast$}]{ch}
+\end{DoxyParamCaption}
+)}}\label{slip_8c_a5081b9c798345b3e353802f30bcbe0c2}
+
+
+initialize slip datalink layer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em put\-\_\-function} & the putchar function \\
+\hline
+{\em get\-\_\-function} & the getchar (blocking) function \\
+\hline
+{\em get\-\_\-function\-\_\-to} & the getchar (non-\/blocking) function \\
+\hline
+{\em ch} & a preallocated '\hyperlink{structslip__channel}{slip\-\_\-channel}' structure to contain the channel information\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result -\/ success(0), failure (otherwise) 
+\end{DoxyReturn}
+
+
+Definition at line 12 of file slip.\-c.
+
+\hypertarget{slip_8c_a35baf5d5a5d2756a0caad9764c2dd095}{\index{slip.\-c@{slip.\-c}!slip\-\_\-rx@{slip\-\_\-rx}}
+\index{slip\-\_\-rx@{slip\-\_\-rx}!slip.c@{slip.\-c}}
+\subsubsection[{slip\-\_\-rx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} slip\-\_\-rx (
+\begin{DoxyParamCaption}
+\item[{{\bf slip\-\_\-channel} $\ast$}]{ch, }
+\item[{{\bf uint8\-\_\-t} $\ast$}]{buffer, }
+\item[{{\bf uint8\-\_\-t}}]{len}
+\end{DoxyParamCaption}
+)}}\label{slip_8c_a35baf5d5a5d2756a0caad9764c2dd095}
+
+
+receive data from the channel 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ch} & pre-\/initialized (with 'slip\-\_\-init') channel to read from \\
+\hline
+{\em buffer} & preallocated sufficiently big buffer to contain the data \\
+\hline
+{\em len} & the maximal size of the buffer\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the amount of data read before framing (or timeout) occured 
+\end{DoxyReturn}
+
+
+Definition at line 21 of file slip.\-c.
+
+\hypertarget{slip_8c_a2194c1a8981582e05dd0201145504c59}{\index{slip.\-c@{slip.\-c}!slip\-\_\-tx@{slip\-\_\-tx}}
+\index{slip\-\_\-tx@{slip\-\_\-tx}!slip.c@{slip.\-c}}
+\subsubsection[{slip\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} slip\-\_\-tx (
+\begin{DoxyParamCaption}
+\item[{{\bf slip\-\_\-channel} $\ast$}]{ch, }
+\item[{{\bf uint8\-\_\-t} $\ast$}]{buffer, }
+\item[{{\bf uint8\-\_\-t}}]{len, }
+\item[{{\bf uint8\-\_\-t}}]{start\-\_\-end}
+\end{DoxyParamCaption}
+)}}\label{slip_8c_a2194c1a8981582e05dd0201145504c59}
+
+
+Send data to the channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ch} & pre-\/initialized (with 'slip\-\_\-init') channel to read from \\
+\hline
+{\em buffer} & contains the data to be sent \\
+\hline
+{\em len} & the amount of data to be sent from the 'buffer' \\
+\hline
+{\em start\-\_\-end} & the stage of sending a frame\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the amount of data actually sent 
+\end{DoxyReturn}
+
+
+Definition at line 105 of file slip.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{slip_8c_aa20c484f29bf3d3ab7b1d725acd1d47b}{\index{slip.\-c@{slip.\-c}!slip\-\_\-get\-\_\-char@{slip\-\_\-get\-\_\-char}}
+\index{slip\-\_\-get\-\_\-char@{slip\-\_\-get\-\_\-char}!slip.c@{slip.\-c}}
+\subsubsection[{slip\-\_\-get\-\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}{\bf fn\-\_\-get\-\_\-char} slip\-\_\-get\-\_\-char = N\-U\-L\-L}}\label{slip_8c_aa20c484f29bf3d3ab7b1d725acd1d47b}
+
+
+Definition at line 8 of file slip.\-c.
+
+\hypertarget{slip_8c_aa55cda0bc53118e4d95ae9667d08cf65}{\index{slip.\-c@{slip.\-c}!slip\-\_\-put\-\_\-char@{slip\-\_\-put\-\_\-char}}
+\index{slip\-\_\-put\-\_\-char@{slip\-\_\-put\-\_\-char}!slip.c@{slip.\-c}}
+\subsubsection[{slip\-\_\-put\-\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}{\bf fn\-\_\-put\-\_\-char} slip\-\_\-put\-\_\-char = N\-U\-L\-L}}\label{slip_8c_aa55cda0bc53118e4d95ae9667d08cf65}
+
+
+Definition at line 7 of file slip.\-c.
+

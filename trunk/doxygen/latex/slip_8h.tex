@@ -1,0 +1,218 @@
+\hypertarget{slip_8h}{\section{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/slip.h File Reference}
+\label{slip_8h}\index{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/slip.\-h@{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/slip.\-h}}
+}
+
+
+This layer is situated over the physical layer and acts.  
+
+
+{\ttfamily \#include \char`\"{}spec\-\_\-types.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structslip__channel}{slip\-\_\-channel}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{slip_8h_ac08c4b8e75c6456f5654145f8b001005}{S\-L\-I\-P\-\_\-\-E\-N\-D}~192
+\item 
+\#define \hyperlink{slip_8h_a16d43ca99b156a9e53136a6c3006455c}{S\-L\-I\-P\-\_\-\-D\-A\-T\-A\-\_\-\-E\-N\-D}~220
+\item 
+\#define \hyperlink{slip_8h_abd1cc8b2a77519cfe396e1c6ba600d94}{S\-L\-I\-P\-\_\-\-D\-A\-T\-A\-\_\-\-E\-S\-C}~221
+\item 
+\#define \hyperlink{slip_8h_a379cfa838122508f0e88fbbe8ce80c47}{S\-L\-I\-P\-\_\-\-E\-S\-C}~219
+\item 
+\#define \hyperlink{slip_8h_a9c2d9cf026cad8d82e5599bd77d671ef}{S\-L\-I\-P\-\_\-\-R\-X\-\_\-\-T\-I\-M\-E\-O\-U\-T}~50
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \hyperlink{slip_8h_a99fb83031ce9923c84392b4e92f956b5afb8ec84c87d25e43ee76002690dec896}{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-M\-I\-D\-D\-L\-E} = 0x00, 
+\hyperlink{slip_8h_a99fb83031ce9923c84392b4e92f956b5a086d9d654ca8d326399c4d8428f7b362}{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-S\-T\-A\-R\-T} = 0x01, 
+\hyperlink{slip_8h_a99fb83031ce9923c84392b4e92f956b5a4d6d663aa01407b361e63d4bbe464ec2}{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-E\-N\-D} = 0x02, 
+\hyperlink{slip_8h_a99fb83031ce9923c84392b4e92f956b5ae7f8626d3212e1485c2f49bf7c29868d}{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-R\-E\-G} = 0x03
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{slip_8h_a5081b9c798345b3e353802f30bcbe0c2}{slip\-\_\-init} (\hyperlink{spec__types_8h_a37f4bf12d02c5a8034ea7842fc44139e}{fn\-\_\-put\-\_\-char} put\-\_\-function, \hyperlink{spec__types_8h_ae27f995dac682449dbaccadf5e5f8f2f}{fn\-\_\-get\-\_\-char} get\-\_\-function, \hyperlink{spec__types_8h_ace37bdc988d620cf5545d6be5c8df9a6}{fn\-\_\-get\-\_\-char\-\_\-to} get\-\_\-function\-\_\-to, \hyperlink{structslip__channel}{slip\-\_\-channel} $\ast$ch)
+\begin{DoxyCompactList}\small\item\em initialize slip datalink layer \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{slip_8h_a35baf5d5a5d2756a0caad9764c2dd095}{slip\-\_\-rx} (\hyperlink{structslip__channel}{slip\-\_\-channel} $\ast$ch, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} $\ast$buffer, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} len)
+\begin{DoxyCompactList}\small\item\em receive data from the channel \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{slip_8h_a2194c1a8981582e05dd0201145504c59}{slip\-\_\-tx} (\hyperlink{structslip__channel}{slip\-\_\-channel} $\ast$ch, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} $\ast$buffer, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} len, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} start\-\_\-end)
+\begin{DoxyCompactList}\small\item\em Send data to the channel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This layer is situated over the physical layer and acts. as a serial datalink layer
+
+This layer frames the information and operates over the hardware buffer streams of serial information. The framing is conducted using the S\-L\-I\-P protocol.
+
+Message structure\-:
+
+\begin{TabularC}{2}
+\hline
+\rowcolor{lightgray}{\bf N bytes of information (stuffed accordint to the protocol) }&{\bf E\-N\-D byte }\\\cline{1-2}
+N bytes &8 bit \\\cline{1-2}
+\end{TabularC}
+
+
+Definition in file \hyperlink{slip_8h_source}{slip.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{slip_8h_a16d43ca99b156a9e53136a6c3006455c}{\index{slip.\-h@{slip.\-h}!S\-L\-I\-P\-\_\-\-D\-A\-T\-A\-\_\-\-E\-N\-D@{S\-L\-I\-P\-\_\-\-D\-A\-T\-A\-\_\-\-E\-N\-D}}
+\index{S\-L\-I\-P\-\_\-\-D\-A\-T\-A\-\_\-\-E\-N\-D@{S\-L\-I\-P\-\_\-\-D\-A\-T\-A\-\_\-\-E\-N\-D}!slip.h@{slip.\-h}}
+\subsubsection[{S\-L\-I\-P\-\_\-\-D\-A\-T\-A\-\_\-\-E\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-L\-I\-P\-\_\-\-D\-A\-T\-A\-\_\-\-E\-N\-D~220}}\label{slip_8h_a16d43ca99b156a9e53136a6c3006455c}
+D\-\_\-\-E\-N\-D byte (0xdc) -\/ the pair E\-S\-C+\-D\-A\-T\-A\-\_\-\-E\-N\-D = E\-N\-D 
+
+Definition at line 24 of file slip.\-h.
+
+\hypertarget{slip_8h_abd1cc8b2a77519cfe396e1c6ba600d94}{\index{slip.\-h@{slip.\-h}!S\-L\-I\-P\-\_\-\-D\-A\-T\-A\-\_\-\-E\-S\-C@{S\-L\-I\-P\-\_\-\-D\-A\-T\-A\-\_\-\-E\-S\-C}}
+\index{S\-L\-I\-P\-\_\-\-D\-A\-T\-A\-\_\-\-E\-S\-C@{S\-L\-I\-P\-\_\-\-D\-A\-T\-A\-\_\-\-E\-S\-C}!slip.h@{slip.\-h}}
+\subsubsection[{S\-L\-I\-P\-\_\-\-D\-A\-T\-A\-\_\-\-E\-S\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-L\-I\-P\-\_\-\-D\-A\-T\-A\-\_\-\-E\-S\-C~221}}\label{slip_8h_abd1cc8b2a77519cfe396e1c6ba600d94}
+D\-\_\-\-E\-S\-C byte (0xdd) -\/ stuffing A\-S\-C+\-D\-A\-T\-A\-\_\-\-E\-S\-C = E\-S\-C 
+
+Definition at line 25 of file slip.\-h.
+
+\hypertarget{slip_8h_ac08c4b8e75c6456f5654145f8b001005}{\index{slip.\-h@{slip.\-h}!S\-L\-I\-P\-\_\-\-E\-N\-D@{S\-L\-I\-P\-\_\-\-E\-N\-D}}
+\index{S\-L\-I\-P\-\_\-\-E\-N\-D@{S\-L\-I\-P\-\_\-\-E\-N\-D}!slip.h@{slip.\-h}}
+\subsubsection[{S\-L\-I\-P\-\_\-\-E\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-L\-I\-P\-\_\-\-E\-N\-D~192}}\label{slip_8h_ac08c4b8e75c6456f5654145f8b001005}
+E\-N\-D byte (0xc0) -\/ message ending 
+
+Definition at line 23 of file slip.\-h.
+
+\hypertarget{slip_8h_a379cfa838122508f0e88fbbe8ce80c47}{\index{slip.\-h@{slip.\-h}!S\-L\-I\-P\-\_\-\-E\-S\-C@{S\-L\-I\-P\-\_\-\-E\-S\-C}}
+\index{S\-L\-I\-P\-\_\-\-E\-S\-C@{S\-L\-I\-P\-\_\-\-E\-S\-C}!slip.h@{slip.\-h}}
+\subsubsection[{S\-L\-I\-P\-\_\-\-E\-S\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-L\-I\-P\-\_\-\-E\-S\-C~219}}\label{slip_8h_a379cfa838122508f0e88fbbe8ce80c47}
+E\-S\-C byte (0xdb) -\/ stuffing before middle E\-N\-D/\-E\-S\-C 
+
+Definition at line 26 of file slip.\-h.
+
+\hypertarget{slip_8h_a9c2d9cf026cad8d82e5599bd77d671ef}{\index{slip.\-h@{slip.\-h}!S\-L\-I\-P\-\_\-\-R\-X\-\_\-\-T\-I\-M\-E\-O\-U\-T@{S\-L\-I\-P\-\_\-\-R\-X\-\_\-\-T\-I\-M\-E\-O\-U\-T}}
+\index{S\-L\-I\-P\-\_\-\-R\-X\-\_\-\-T\-I\-M\-E\-O\-U\-T@{S\-L\-I\-P\-\_\-\-R\-X\-\_\-\-T\-I\-M\-E\-O\-U\-T}!slip.h@{slip.\-h}}
+\subsubsection[{S\-L\-I\-P\-\_\-\-R\-X\-\_\-\-T\-I\-M\-E\-O\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-L\-I\-P\-\_\-\-R\-X\-\_\-\-T\-I\-M\-E\-O\-U\-T~50}}\label{slip_8h_a9c2d9cf026cad8d82e5599bd77d671ef}
+number of milliseconds to wait for a single byte rx 
+
+Definition at line 27 of file slip.\-h.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{slip_8h_a99fb83031ce9923c84392b4e92f956b5}{\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}}\label{slip_8h_a99fb83031ce9923c84392b4e92f956b5}
+slip message sending stages Different types of message types send by the d\-Prot network layer. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-M\-I\-D\-D\-L\-E@{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-M\-I\-D\-D\-L\-E}!slip.\-h@{slip.\-h}}\index{slip.\-h@{slip.\-h}!S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-M\-I\-D\-D\-L\-E@{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-M\-I\-D\-D\-L\-E}}\item[{\em 
+\hypertarget{slip_8h_a99fb83031ce9923c84392b4e92f956b5afb8ec84c87d25e43ee76002690dec896}{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-M\-I\-D\-D\-L\-E}\label{slip_8h_a99fb83031ce9923c84392b4e92f956b5afb8ec84c87d25e43ee76002690dec896}
+}]send as the middle of a continuing message \index{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-S\-T\-A\-R\-T@{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-S\-T\-A\-R\-T}!slip.\-h@{slip.\-h}}\index{slip.\-h@{slip.\-h}!S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-S\-T\-A\-R\-T@{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-S\-T\-A\-R\-T}}\item[{\em 
+\hypertarget{slip_8h_a99fb83031ce9923c84392b4e92f956b5a086d9d654ca8d326399c4d8428f7b362}{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-S\-T\-A\-R\-T}\label{slip_8h_a99fb83031ce9923c84392b4e92f956b5a086d9d654ca8d326399c4d8428f7b362}
+}]send the header (which doesn't really exist -\/ only a single E\-N\-D to flush receiver's buffers \index{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-E\-N\-D@{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-E\-N\-D}!slip.\-h@{slip.\-h}}\index{slip.\-h@{slip.\-h}!S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-E\-N\-D@{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-E\-N\-D}}\item[{\em 
+\hypertarget{slip_8h_a99fb83031ce9923c84392b4e92f956b5a4d6d663aa01407b361e63d4bbe464ec2}{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-E\-N\-D}\label{slip_8h_a99fb83031ce9923c84392b4e92f956b5a4d6d663aa01407b361e63d4bbe464ec2}
+}]send the ending of the message \index{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-R\-E\-G@{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-R\-E\-G}!slip.\-h@{slip.\-h}}\index{slip.\-h@{slip.\-h}!S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-R\-E\-G@{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-R\-E\-G}}\item[{\em 
+\hypertarget{slip_8h_a99fb83031ce9923c84392b4e92f956b5ae7f8626d3212e1485c2f49bf7c29868d}{S\-L\-I\-P\-\_\-\-M\-S\-G\-\_\-\-R\-E\-G}\label{slip_8h_a99fb83031ce9923c84392b4e92f956b5ae7f8626d3212e1485c2f49bf7c29868d}
+}]send everything as a single whole message \end{description}
+\end{Desc}
+
+
+Definition at line 34 of file slip.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{slip_8h_a5081b9c798345b3e353802f30bcbe0c2}{\index{slip.\-h@{slip.\-h}!slip\-\_\-init@{slip\-\_\-init}}
+\index{slip\-\_\-init@{slip\-\_\-init}!slip.h@{slip.\-h}}
+\subsubsection[{slip\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} slip\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf fn\-\_\-put\-\_\-char}}]{put\-\_\-function, }
+\item[{{\bf fn\-\_\-get\-\_\-char}}]{get\-\_\-function, }
+\item[{{\bf fn\-\_\-get\-\_\-char\-\_\-to}}]{get\-\_\-function\-\_\-to, }
+\item[{{\bf slip\-\_\-channel} $\ast$}]{ch}
+\end{DoxyParamCaption}
+)}}\label{slip_8h_a5081b9c798345b3e353802f30bcbe0c2}
+
+
+initialize slip datalink layer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em put\-\_\-function} & the putchar function \\
+\hline
+{\em get\-\_\-function} & the getchar (blocking) function \\
+\hline
+{\em get\-\_\-function\-\_\-to} & the getchar (non-\/blocking) function \\
+\hline
+{\em ch} & a preallocated '\hyperlink{structslip__channel}{slip\-\_\-channel}' structure to contain the channel information\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result -\/ success(0), failure (otherwise) 
+\end{DoxyReturn}
+
+
+Definition at line 12 of file slip.\-c.
+
+\hypertarget{slip_8h_a35baf5d5a5d2756a0caad9764c2dd095}{\index{slip.\-h@{slip.\-h}!slip\-\_\-rx@{slip\-\_\-rx}}
+\index{slip\-\_\-rx@{slip\-\_\-rx}!slip.h@{slip.\-h}}
+\subsubsection[{slip\-\_\-rx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} slip\-\_\-rx (
+\begin{DoxyParamCaption}
+\item[{{\bf slip\-\_\-channel} $\ast$}]{ch, }
+\item[{{\bf uint8\-\_\-t} $\ast$}]{buffer, }
+\item[{{\bf uint8\-\_\-t}}]{len}
+\end{DoxyParamCaption}
+)}}\label{slip_8h_a35baf5d5a5d2756a0caad9764c2dd095}
+
+
+receive data from the channel 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ch} & pre-\/initialized (with 'slip\-\_\-init') channel to read from \\
+\hline
+{\em buffer} & preallocated sufficiently big buffer to contain the data \\
+\hline
+{\em len} & the maximal size of the buffer\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the amount of data read before framing (or timeout) occured 
+\end{DoxyReturn}
+
+
+Definition at line 21 of file slip.\-c.
+
+\hypertarget{slip_8h_a2194c1a8981582e05dd0201145504c59}{\index{slip.\-h@{slip.\-h}!slip\-\_\-tx@{slip\-\_\-tx}}
+\index{slip\-\_\-tx@{slip\-\_\-tx}!slip.h@{slip.\-h}}
+\subsubsection[{slip\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} slip\-\_\-tx (
+\begin{DoxyParamCaption}
+\item[{{\bf slip\-\_\-channel} $\ast$}]{ch, }
+\item[{{\bf uint8\-\_\-t} $\ast$}]{buffer, }
+\item[{{\bf uint8\-\_\-t}}]{len, }
+\item[{{\bf uint8\-\_\-t}}]{start\-\_\-end}
+\end{DoxyParamCaption}
+)}}\label{slip_8h_a2194c1a8981582e05dd0201145504c59}
+
+
+Send data to the channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ch} & pre-\/initialized (with 'slip\-\_\-init') channel to read from \\
+\hline
+{\em buffer} & contains the data to be sent \\
+\hline
+{\em len} & the amount of data to be sent from the 'buffer' \\
+\hline
+{\em start\-\_\-end} & the stage of sending a frame\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the amount of data actually sent 
+\end{DoxyReturn}
+
+
+Definition at line 105 of file slip.\-c.
+

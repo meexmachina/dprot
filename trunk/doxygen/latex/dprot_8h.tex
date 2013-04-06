@@ -1,0 +1,470 @@
+\hypertarget{dprot_8h}{\section{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/dprot.h File Reference}
+\label{dprot_8h}\index{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/dprot.\-h@{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/dprot.\-h}}
+}
+
+
+This layer is situated over the slip tranport layer.  
+
+
+{\ttfamily \#include \char`\"{}spec\-\_\-types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}slip.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}checking.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{dprot_8h_ab324e7aad11b46fd70724c8b67098878}{D\-P\-R\-O\-T\-\_\-\-M\-A\-X\-\_\-\-M\-S\-G}~256
+\begin{DoxyCompactList}\small\item\em Defines that maximal allowed message size. \end{DoxyCompactList}\item 
+\#define \hyperlink{dprot_8h_a8665bf9f04a8b8e5fc3221943dc81a16}{D\-P\-R\-O\-T\-\_\-\-P\-T\-O\-T\-\_\-\-S\-I\-Z\-E}~3
+\begin{DoxyCompactList}\small\item\em Total bytes taked by the protocol for header and footer of messages. \end{DoxyCompactList}\item 
+\#define \hyperlink{dprot_8h_adb61422b330bd4f9c2f52c714a9bb83e}{D\-P\-R\-O\-T\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D}~(\hyperlink{dprot_8h_ab324e7aad11b46fd70724c8b67098878}{D\-P\-R\-O\-T\-\_\-\-M\-A\-X\-\_\-\-M\-S\-G}-\/\hyperlink{dprot_8h_a8665bf9f04a8b8e5fc3221943dc81a16}{D\-P\-R\-O\-T\-\_\-\-P\-T\-O\-T\-\_\-\-S\-I\-Z\-E})
+\begin{DoxyCompactList}\small\item\em The total neto size of a payload. \end{DoxyCompactList}\item 
+\#define \hyperlink{dprot_8h_af1328a6a9ba3bb595a1191072c307840}{D\-P\-R\-O\-T\-\_\-\-C\-H\-E\-C\-K\-I\-N\-G}(c, d)~\hyperlink{checking_8h_ac080cfc461d09729e6721572f468ad3c}{crc8\-\_\-add\-\_\-byte}((c),(d))
+\begin{DoxyCompactList}\small\item\em The checking algorithm used by d\-Prot. \end{DoxyCompactList}\item 
+\#define \hyperlink{dprot_8h_accb7364930d4544bcbdf1fbd9c9b36b0}{D\-P\-R\-O\-T\-\_\-\-M\-A\-S\-T\-E\-R\-\_\-\-N\-U\-M\-\_\-\-R\-E\-T\-R\-I\-E\-S}~5
+\begin{DoxyCompactList}\small\item\em The number of retries on communication. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \\*
+\hyperlink{dprot_8h_a06fc87d81c62e9abb8790b6e5713c55ba92e39464217a87ca4f4903840dcefff3}{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-D\-A\-T\-A} = 0x10, 
+\hyperlink{dprot_8h_a06fc87d81c62e9abb8790b6e5713c55ba6a4ca37b98ea5504c4c54482df85b8fa}{D\-R\-O\-P\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-A\-R\-P} = 0x20, 
+\hyperlink{dprot_8h_a06fc87d81c62e9abb8790b6e5713c55ba35c2c8663dd6db5a5e5c2b29c5ef1a06}{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-A\-C\-K} = 0x30, 
+\hyperlink{dprot_8h_a06fc87d81c62e9abb8790b6e5713c55ba54ce384fbffd5d7068c15e0b3414644c}{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-N\-A\-C\-K} = 0x40, 
+\\*
+\hyperlink{dprot_8h_a06fc87d81c62e9abb8790b6e5713c55ba27716243d666996cfa3dc6a81ec12408}{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-S\-Y\-N\-C} = 0x\-A0
+ \}
+\item 
+enum \{ \\*
+\hyperlink{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7a3a8f0112ca2b95c17736fb766a153249}{D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R} = 0x00, 
+\hyperlink{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7a6cc025157be18537ad4a3d589b6dc9ff}{D\-P\-R\-O\-T\-\_\-\-F\-R\-A\-M\-I\-N\-G\-\_\-\-E\-R\-R\-O\-R} = 0x01, 
+\hyperlink{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7a8fb033a5a143371245edf0572dfed6d1}{D\-P\-R\-O\-T\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R} = 0x02, 
+\hyperlink{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7a7bef7dfe9a2180c6086189755c6fc068}{D\-P\-R\-O\-T\-\_\-\-L\-O\-G\-I\-C\-A\-L\-\_\-\-E\-R\-R\-O\-R} = 0x03, 
+\\*
+\hyperlink{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7a518e568120add83eeb207b7094e1ddd1}{D\-P\-R\-O\-T\-\_\-\-M\-S\-G\-\_\-\-S\-I\-Z\-E\-\_\-\-E\-R\-R\-O\-R} = 0x04, 
+\hyperlink{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7a64f3ea2269bf0decb2e0dc9184218f3a}{D\-P\-R\-O\-T\-\_\-\-A\-C\-K\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D} = 0x\-A0, 
+\hyperlink{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7ad672871fd1e590d86a514d0695116f77}{D\-P\-R\-O\-T\-\_\-\-N\-A\-C\-K\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D} = 0x\-B0
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot_8h_a11d0af51980a64b65ad6180e0efd7fc0}{dprot\-\_\-master\-\_\-init\-\_\-protocol} (\hyperlink{spec__types_8h_a37f4bf12d02c5a8034ea7842fc44139e}{fn\-\_\-put\-\_\-char} put\-\_\-function, \hyperlink{spec__types_8h_ace37bdc988d620cf5545d6be5c8df9a6}{fn\-\_\-get\-\_\-char\-\_\-to} get\-\_\-function)
+\begin{DoxyCompactList}\small\item\em Initializing the master side protocol of the d\-Prot. \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot_8h_aef09ce7327a2de0354f758044c0ce218}{dprot\-\_\-master\-\_\-send\-\_\-ping} (void)
+\begin{DoxyCompactList}\small\item\em d\-Prot master send ping message to the slave \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot_8h_a4fe385c2f80d9312dae44952f99d62d9}{dprot\-\_\-master\-\_\-send\-\_\-sync} (void)
+\begin{DoxyCompactList}\small\item\em d\-Prot master send sync message to the slave \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot_8h_a56d459bd5ac67a744b72d63eae4f4b8e}{dprot\-\_\-master\-\_\-send\-\_\-data\-\_\-msg} (\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} $\ast$buffer, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} len)
+\begin{DoxyCompactList}\small\item\em d\-Prot master send data to the slave \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot_8h_a617f56a1395659cd976f4b6b17ac83f8}{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-ack\-\_\-nack} (void)
+\begin{DoxyCompactList}\small\item\em master node waiting for the ack/nack message from the slave \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot_8h_a6aa9db5d360ad0c94b2becc3825dd06e}{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-data} (\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} $\ast$buffer, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} max\-\_\-len)
+\begin{DoxyCompactList}\small\item\em master node waiting a data message from the slave. \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot_8h_a905d476e97295bb55becd22f2f333924}{dprot\-\_\-slave\-\_\-init\-\_\-protocol} (\hyperlink{spec__types_8h_a37f4bf12d02c5a8034ea7842fc44139e}{fn\-\_\-put\-\_\-char} put\-\_\-function, \hyperlink{spec__types_8h_ae27f995dac682449dbaccadf5e5f8f2f}{fn\-\_\-get\-\_\-char} get\-\_\-function)
+\begin{DoxyCompactList}\small\item\em Initializing the slave side protocol of the d\-Prot. \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot_8h_ad4d91e34fef0ad41e2e5b30b795eb3c8}{dprot\-\_\-slave\-\_\-wait\-\_\-for\-\_\-msg} (\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} $\ast$buffer, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} max\-\_\-len)
+\begin{DoxyCompactList}\small\item\em d\-Prot slave waits for data message. This function analyzes the received message types and automatically filters them (sends back arp responses and sync stuff) until a data message arrives. This message is returned to the higher layer. The input 'buffer' and 'max\-\_\-len' take into account the additional 'type', 'length' and 'checking\-\_\-byte' which accumulate to additional 3 bytes. That means that the maximum possible 'payload length' is 256-\/3=253 bytes per transaction. \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot_8h_a217093cf6ad27ebbdf52941a386bb393}{dprot\-\_\-slave\-\_\-send\-\_\-ack} (void)
+\begin{DoxyCompactList}\small\item\em d\-Prot slave sending ack to the master \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot_8h_a24cca4088e15cad41bada0051d1f3d60}{dprot\-\_\-slave\-\_\-send\-\_\-nack} (void)
+\begin{DoxyCompactList}\small\item\em d\-Prot slave sends 'nack' to the master (message error) \end{DoxyCompactList}\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{dprot_8h_a4e228c8d4ed029cff858fbf658740fda}{dprot\-\_\-slave\-\_\-send\-\_\-data\-\_\-msg} (\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} $\ast$buffer, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} len)
+\begin{DoxyCompactList}\small\item\em d\-Prot slave send data to the master This function will be always conducted by the slave in order to send back data to the initiator (master) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This layer is situated over the slip tranport layer. Its in charge of the error checking, ack/nack-\/ing, sync and logical checkings on the trasmitter and receiver.
+
+Message structure\-:
+
+\begin{TabularC}{5}
+\hline
+\rowcolor{lightgray}{\bf 7bit }&{\bf 1bit }&{\bf 8bit }&{\bf 'length'-\/bytes }&{\bf 8bit }\\\cline{1-5}
+type &seq &length&d a t a ... &checking8 \\\cline{1-5}
+\end{TabularC}
+
+
+The maximal message length (type+seq+length+data+check) is 256 bytes. Longer messages have to be framed in higher layer. The checking8 byte is one of 'crc8'/'chs8'/ /'xor8' checksum methods (you choose) of 'type'+'length' +'data'. The sequencial parity will keep a track on the 'sequencial number' of single bit long. 
+
+Definition in file \hyperlink{dprot_8h_source}{dprot.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{dprot_8h_af1328a6a9ba3bb595a1191072c307840}{\index{dprot.\-h@{dprot.\-h}!D\-P\-R\-O\-T\-\_\-\-C\-H\-E\-C\-K\-I\-N\-G@{D\-P\-R\-O\-T\-\_\-\-C\-H\-E\-C\-K\-I\-N\-G}}
+\index{D\-P\-R\-O\-T\-\_\-\-C\-H\-E\-C\-K\-I\-N\-G@{D\-P\-R\-O\-T\-\_\-\-C\-H\-E\-C\-K\-I\-N\-G}!dprot.h@{dprot.\-h}}
+\subsubsection[{D\-P\-R\-O\-T\-\_\-\-C\-H\-E\-C\-K\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-P\-R\-O\-T\-\_\-\-C\-H\-E\-C\-K\-I\-N\-G(
+\begin{DoxyParamCaption}
+\item[{}]{c, }
+\item[{}]{d}
+\end{DoxyParamCaption}
+)~{\bf crc8\-\_\-add\-\_\-byte}((c),(d))}}\label{dprot_8h_af1328a6a9ba3bb595a1191072c307840}
+
+
+The checking algorithm used by d\-Prot. 
+
+
+
+Definition at line 49 of file dprot.\-h.
+
+\hypertarget{dprot_8h_accb7364930d4544bcbdf1fbd9c9b36b0}{\index{dprot.\-h@{dprot.\-h}!D\-P\-R\-O\-T\-\_\-\-M\-A\-S\-T\-E\-R\-\_\-\-N\-U\-M\-\_\-\-R\-E\-T\-R\-I\-E\-S@{D\-P\-R\-O\-T\-\_\-\-M\-A\-S\-T\-E\-R\-\_\-\-N\-U\-M\-\_\-\-R\-E\-T\-R\-I\-E\-S}}
+\index{D\-P\-R\-O\-T\-\_\-\-M\-A\-S\-T\-E\-R\-\_\-\-N\-U\-M\-\_\-\-R\-E\-T\-R\-I\-E\-S@{D\-P\-R\-O\-T\-\_\-\-M\-A\-S\-T\-E\-R\-\_\-\-N\-U\-M\-\_\-\-R\-E\-T\-R\-I\-E\-S}!dprot.h@{dprot.\-h}}
+\subsubsection[{D\-P\-R\-O\-T\-\_\-\-M\-A\-S\-T\-E\-R\-\_\-\-N\-U\-M\-\_\-\-R\-E\-T\-R\-I\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-P\-R\-O\-T\-\_\-\-M\-A\-S\-T\-E\-R\-\_\-\-N\-U\-M\-\_\-\-R\-E\-T\-R\-I\-E\-S~5}}\label{dprot_8h_accb7364930d4544bcbdf1fbd9c9b36b0}
+
+
+The number of retries on communication. 
+
+
+
+Definition at line 54 of file dprot.\-h.
+
+\hypertarget{dprot_8h_ab324e7aad11b46fd70724c8b67098878}{\index{dprot.\-h@{dprot.\-h}!D\-P\-R\-O\-T\-\_\-\-M\-A\-X\-\_\-\-M\-S\-G@{D\-P\-R\-O\-T\-\_\-\-M\-A\-X\-\_\-\-M\-S\-G}}
+\index{D\-P\-R\-O\-T\-\_\-\-M\-A\-X\-\_\-\-M\-S\-G@{D\-P\-R\-O\-T\-\_\-\-M\-A\-X\-\_\-\-M\-S\-G}!dprot.h@{dprot.\-h}}
+\subsubsection[{D\-P\-R\-O\-T\-\_\-\-M\-A\-X\-\_\-\-M\-S\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-P\-R\-O\-T\-\_\-\-M\-A\-X\-\_\-\-M\-S\-G~256}}\label{dprot_8h_ab324e7aad11b46fd70724c8b67098878}
+
+
+Defines that maximal allowed message size. 
+
+
+
+Definition at line 34 of file dprot.\-h.
+
+\hypertarget{dprot_8h_adb61422b330bd4f9c2f52c714a9bb83e}{\index{dprot.\-h@{dprot.\-h}!D\-P\-R\-O\-T\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D@{D\-P\-R\-O\-T\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D}}
+\index{D\-P\-R\-O\-T\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D@{D\-P\-R\-O\-T\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D}!dprot.h@{dprot.\-h}}
+\subsubsection[{D\-P\-R\-O\-T\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-P\-R\-O\-T\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D~({\bf D\-P\-R\-O\-T\-\_\-\-M\-A\-X\-\_\-\-M\-S\-G}-\/{\bf D\-P\-R\-O\-T\-\_\-\-P\-T\-O\-T\-\_\-\-S\-I\-Z\-E})}}\label{dprot_8h_adb61422b330bd4f9c2f52c714a9bb83e}
+
+
+The total neto size of a payload. 
+
+
+
+Definition at line 44 of file dprot.\-h.
+
+\hypertarget{dprot_8h_a8665bf9f04a8b8e5fc3221943dc81a16}{\index{dprot.\-h@{dprot.\-h}!D\-P\-R\-O\-T\-\_\-\-P\-T\-O\-T\-\_\-\-S\-I\-Z\-E@{D\-P\-R\-O\-T\-\_\-\-P\-T\-O\-T\-\_\-\-S\-I\-Z\-E}}
+\index{D\-P\-R\-O\-T\-\_\-\-P\-T\-O\-T\-\_\-\-S\-I\-Z\-E@{D\-P\-R\-O\-T\-\_\-\-P\-T\-O\-T\-\_\-\-S\-I\-Z\-E}!dprot.h@{dprot.\-h}}
+\subsubsection[{D\-P\-R\-O\-T\-\_\-\-P\-T\-O\-T\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-P\-R\-O\-T\-\_\-\-P\-T\-O\-T\-\_\-\-S\-I\-Z\-E~3}}\label{dprot_8h_a8665bf9f04a8b8e5fc3221943dc81a16}
+
+
+Total bytes taked by the protocol for header and footer of messages. 
+
+
+
+Definition at line 39 of file dprot.\-h.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{dprot_8h_a06fc87d81c62e9abb8790b6e5713c55b}{\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}}\label{dprot_8h_a06fc87d81c62e9abb8790b6e5713c55b}
+d\-Prot protocol message types enumeration Different types of message types send by the d\-Prot network layer. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-D\-A\-T\-A@{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-D\-A\-T\-A}!dprot.\-h@{dprot.\-h}}\index{dprot.\-h@{dprot.\-h}!D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-D\-A\-T\-A@{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-D\-A\-T\-A}}\item[{\em 
+\hypertarget{dprot_8h_a06fc87d81c62e9abb8790b6e5713c55ba92e39464217a87ca4f4903840dcefff3}{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-D\-A\-T\-A}\label{dprot_8h_a06fc87d81c62e9abb8790b6e5713c55ba92e39464217a87ca4f4903840dcefff3}
+}]Data message \index{D\-R\-O\-P\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-A\-R\-P@{D\-R\-O\-P\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-A\-R\-P}!dprot.\-h@{dprot.\-h}}\index{dprot.\-h@{dprot.\-h}!D\-R\-O\-P\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-A\-R\-P@{D\-R\-O\-P\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-A\-R\-P}}\item[{\em 
+\hypertarget{dprot_8h_a06fc87d81c62e9abb8790b6e5713c55ba6a4ca37b98ea5504c4c54482df85b8fa}{D\-R\-O\-P\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-A\-R\-P}\label{dprot_8h_a06fc87d81c62e9abb8790b6e5713c55ba6a4ca37b98ea5504c4c54482df85b8fa}
+}]A\-R\-P like 'ping' message \index{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-A\-C\-K@{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-A\-C\-K}!dprot.\-h@{dprot.\-h}}\index{dprot.\-h@{dprot.\-h}!D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-A\-C\-K@{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-A\-C\-K}}\item[{\em 
+\hypertarget{dprot_8h_a06fc87d81c62e9abb8790b6e5713c55ba35c2c8663dd6db5a5e5c2b29c5ef1a06}{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-A\-C\-K}\label{dprot_8h_a06fc87d81c62e9abb8790b6e5713c55ba35c2c8663dd6db5a5e5c2b29c5ef1a06}
+}]Acknowledge signs that a message was accepted by the slave \index{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-N\-A\-C\-K@{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-N\-A\-C\-K}!dprot.\-h@{dprot.\-h}}\index{dprot.\-h@{dprot.\-h}!D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-N\-A\-C\-K@{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-N\-A\-C\-K}}\item[{\em 
+\hypertarget{dprot_8h_a06fc87d81c62e9abb8790b6e5713c55ba54ce384fbffd5d7068c15e0b3414644c}{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-N\-A\-C\-K}\label{dprot_8h_a06fc87d81c62e9abb8790b6e5713c55ba54ce384fbffd5d7068c15e0b3414644c}
+}]Not-\/\-Acknowledge -\/ some data was received but it was corrupted \index{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-S\-Y\-N\-C@{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-S\-Y\-N\-C}!dprot.\-h@{dprot.\-h}}\index{dprot.\-h@{dprot.\-h}!D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-S\-Y\-N\-C@{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-S\-Y\-N\-C}}\item[{\em 
+\hypertarget{dprot_8h_a06fc87d81c62e9abb8790b6e5713c55ba27716243d666996cfa3dc6a81ec12408}{D\-P\-R\-O\-T\-\_\-\-T\-Y\-P\-E\-\_\-\-S\-Y\-N\-C}\label{dprot_8h_a06fc87d81c62e9abb8790b6e5713c55ba27716243d666996cfa3dc6a81ec12408}
+}]Future use for syncing transmitter to receiver (auto-\/baudrate) \end{description}
+\end{Desc}
+
+
+Definition at line 64 of file dprot.\-h.
+
+\hypertarget{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7}{\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}}\label{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7}
+Function return codes (errors/warnings/data) \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R@{D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R}!dprot.\-h@{dprot.\-h}}\index{dprot.\-h@{dprot.\-h}!D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R@{D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R}}\item[{\em 
+\hypertarget{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7a3a8f0112ca2b95c17736fb766a153249}{D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R}\label{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7a3a8f0112ca2b95c17736fb766a153249}
+}]All was O\-K \index{D\-P\-R\-O\-T\-\_\-\-F\-R\-A\-M\-I\-N\-G\-\_\-\-E\-R\-R\-O\-R@{D\-P\-R\-O\-T\-\_\-\-F\-R\-A\-M\-I\-N\-G\-\_\-\-E\-R\-R\-O\-R}!dprot.\-h@{dprot.\-h}}\index{dprot.\-h@{dprot.\-h}!D\-P\-R\-O\-T\-\_\-\-F\-R\-A\-M\-I\-N\-G\-\_\-\-E\-R\-R\-O\-R@{D\-P\-R\-O\-T\-\_\-\-F\-R\-A\-M\-I\-N\-G\-\_\-\-E\-R\-R\-O\-R}}\item[{\em 
+\hypertarget{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7a6cc025157be18537ad4a3d589b6dc9ff}{D\-P\-R\-O\-T\-\_\-\-F\-R\-A\-M\-I\-N\-G\-\_\-\-E\-R\-R\-O\-R}\label{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7a6cc025157be18537ad4a3d589b6dc9ff}
+}]The received data contained framing problem (mostly inconsistence with length) \index{D\-P\-R\-O\-T\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R@{D\-P\-R\-O\-T\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R}!dprot.\-h@{dprot.\-h}}\index{dprot.\-h@{dprot.\-h}!D\-P\-R\-O\-T\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R@{D\-P\-R\-O\-T\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R}}\item[{\em 
+\hypertarget{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7a8fb033a5a143371245edf0572dfed6d1}{D\-P\-R\-O\-T\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R}\label{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7a8fb033a5a143371245edf0572dfed6d1}
+}]The received message had data error -\/ crc8/checksum8/xor8 mismatch \index{D\-P\-R\-O\-T\-\_\-\-L\-O\-G\-I\-C\-A\-L\-\_\-\-E\-R\-R\-O\-R@{D\-P\-R\-O\-T\-\_\-\-L\-O\-G\-I\-C\-A\-L\-\_\-\-E\-R\-R\-O\-R}!dprot.\-h@{dprot.\-h}}\index{dprot.\-h@{dprot.\-h}!D\-P\-R\-O\-T\-\_\-\-L\-O\-G\-I\-C\-A\-L\-\_\-\-E\-R\-R\-O\-R@{D\-P\-R\-O\-T\-\_\-\-L\-O\-G\-I\-C\-A\-L\-\_\-\-E\-R\-R\-O\-R}}\item[{\em 
+\hypertarget{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7a7bef7dfe9a2180c6086189755c6fc068}{D\-P\-R\-O\-T\-\_\-\-L\-O\-G\-I\-C\-A\-L\-\_\-\-E\-R\-R\-O\-R}\label{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7a7bef7dfe9a2180c6086189755c6fc068}
+}]The received data contained logical error like msg-\/type inconsistence, lentgh problem \index{D\-P\-R\-O\-T\-\_\-\-M\-S\-G\-\_\-\-S\-I\-Z\-E\-\_\-\-E\-R\-R\-O\-R@{D\-P\-R\-O\-T\-\_\-\-M\-S\-G\-\_\-\-S\-I\-Z\-E\-\_\-\-E\-R\-R\-O\-R}!dprot.\-h@{dprot.\-h}}\index{dprot.\-h@{dprot.\-h}!D\-P\-R\-O\-T\-\_\-\-M\-S\-G\-\_\-\-S\-I\-Z\-E\-\_\-\-E\-R\-R\-O\-R@{D\-P\-R\-O\-T\-\_\-\-M\-S\-G\-\_\-\-S\-I\-Z\-E\-\_\-\-E\-R\-R\-O\-R}}\item[{\em 
+\hypertarget{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7a518e568120add83eeb207b7094e1ddd1}{D\-P\-R\-O\-T\-\_\-\-M\-S\-G\-\_\-\-S\-I\-Z\-E\-\_\-\-E\-R\-R\-O\-R}\label{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7a518e568120add83eeb207b7094e1ddd1}
+}]The received data had size problem \index{D\-P\-R\-O\-T\-\_\-\-A\-C\-K\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D@{D\-P\-R\-O\-T\-\_\-\-A\-C\-K\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D}!dprot.\-h@{dprot.\-h}}\index{dprot.\-h@{dprot.\-h}!D\-P\-R\-O\-T\-\_\-\-A\-C\-K\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D@{D\-P\-R\-O\-T\-\_\-\-A\-C\-K\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D}}\item[{\em 
+\hypertarget{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7a64f3ea2269bf0decb2e0dc9184218f3a}{D\-P\-R\-O\-T\-\_\-\-A\-C\-K\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D}\label{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7a64f3ea2269bf0decb2e0dc9184218f3a}
+}]Ack message was received \index{D\-P\-R\-O\-T\-\_\-\-N\-A\-C\-K\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D@{D\-P\-R\-O\-T\-\_\-\-N\-A\-C\-K\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D}!dprot.\-h@{dprot.\-h}}\index{dprot.\-h@{dprot.\-h}!D\-P\-R\-O\-T\-\_\-\-N\-A\-C\-K\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D@{D\-P\-R\-O\-T\-\_\-\-N\-A\-C\-K\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D}}\item[{\em 
+\hypertarget{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7ad672871fd1e590d86a514d0695116f77}{D\-P\-R\-O\-T\-\_\-\-N\-A\-C\-K\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D}\label{dprot_8h_adf764cbdea00d65edcd07bb9953ad2b7ad672871fd1e590d86a514d0695116f77}
+}]Nack message was received \end{description}
+\end{Desc}
+
+
+Definition at line 77 of file dprot.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{dprot_8h_a11d0af51980a64b65ad6180e0efd7fc0}{\index{dprot.\-h@{dprot.\-h}!dprot\-\_\-master\-\_\-init\-\_\-protocol@{dprot\-\_\-master\-\_\-init\-\_\-protocol}}
+\index{dprot\-\_\-master\-\_\-init\-\_\-protocol@{dprot\-\_\-master\-\_\-init\-\_\-protocol}!dprot.h@{dprot.\-h}}
+\subsubsection[{dprot\-\_\-master\-\_\-init\-\_\-protocol}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-master\-\_\-init\-\_\-protocol (
+\begin{DoxyParamCaption}
+\item[{{\bf fn\-\_\-put\-\_\-char}}]{put\-\_\-function, }
+\item[{{\bf fn\-\_\-get\-\_\-char\-\_\-to}}]{get\-\_\-function}
+\end{DoxyParamCaption}
+)}}\label{dprot_8h_a11d0af51980a64b65ad6180e0efd7fc0}
+
+
+Initializing the master side protocol of the d\-Prot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em put\-\_\-function} & the 'putchar' function to be assigned to the lower layers \\
+\hline
+{\em get\-\_\-function} & the 'getchar' function to be assigned to the lower layers\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success (D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R), error otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 7 of file dprot\-\_\-master.\-c.
+
+\hypertarget{dprot_8h_a56d459bd5ac67a744b72d63eae4f4b8e}{\index{dprot.\-h@{dprot.\-h}!dprot\-\_\-master\-\_\-send\-\_\-data\-\_\-msg@{dprot\-\_\-master\-\_\-send\-\_\-data\-\_\-msg}}
+\index{dprot\-\_\-master\-\_\-send\-\_\-data\-\_\-msg@{dprot\-\_\-master\-\_\-send\-\_\-data\-\_\-msg}!dprot.h@{dprot.\-h}}
+\subsubsection[{dprot\-\_\-master\-\_\-send\-\_\-data\-\_\-msg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-master\-\_\-send\-\_\-data\-\_\-msg (
+\begin{DoxyParamCaption}
+\item[{{\bf uint8\-\_\-t} $\ast$}]{buffer, }
+\item[{{\bf uint8\-\_\-t}}]{len}
+\end{DoxyParamCaption}
+)}}\label{dprot_8h_a56d459bd5ac67a744b72d63eae4f4b8e}
+
+
+d\-Prot master send data to the slave 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pre-\/allocated} & buffer to be sent to the slave \\
+\hline
+{\em the} & number of bytes of buffer to be sent\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+operation result\-: 
+
+D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R -\/ Success 
+
+D\-P\-R\-O\-T\-\_\-\-M\-S\-G\-\_\-\-S\-I\-Z\-E\-\_\-\-E\-R\-R\-O\-R -\/ the requested buffer is too big for a single transaction. 
+\end{DoxyReturn}
+
+
+Definition at line 150 of file dprot\-\_\-master.\-c.
+
+\hypertarget{dprot_8h_aef09ce7327a2de0354f758044c0ce218}{\index{dprot.\-h@{dprot.\-h}!dprot\-\_\-master\-\_\-send\-\_\-ping@{dprot\-\_\-master\-\_\-send\-\_\-ping}}
+\index{dprot\-\_\-master\-\_\-send\-\_\-ping@{dprot\-\_\-master\-\_\-send\-\_\-ping}!dprot.h@{dprot.\-h}}
+\subsubsection[{dprot\-\_\-master\-\_\-send\-\_\-ping}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-master\-\_\-send\-\_\-ping (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{dprot_8h_aef09ce7327a2de0354f758044c0ce218}
+
+
+d\-Prot master send ping message to the slave 
+
+\begin{DoxyReturn}{Returns}
+success (D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R), error otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 195 of file dprot\-\_\-master.\-c.
+
+\hypertarget{dprot_8h_a4fe385c2f80d9312dae44952f99d62d9}{\index{dprot.\-h@{dprot.\-h}!dprot\-\_\-master\-\_\-send\-\_\-sync@{dprot\-\_\-master\-\_\-send\-\_\-sync}}
+\index{dprot\-\_\-master\-\_\-send\-\_\-sync@{dprot\-\_\-master\-\_\-send\-\_\-sync}!dprot.h@{dprot.\-h}}
+\subsubsection[{dprot\-\_\-master\-\_\-send\-\_\-sync}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-master\-\_\-send\-\_\-sync (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{dprot_8h_a4fe385c2f80d9312dae44952f99d62d9}
+
+
+d\-Prot master send sync message to the slave 
+
+\begin{DoxyReturn}{Returns}
+success (D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R), error otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 226 of file dprot\-\_\-master.\-c.
+
+\hypertarget{dprot_8h_a617f56a1395659cd976f4b6b17ac83f8}{\index{dprot.\-h@{dprot.\-h}!dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-ack\-\_\-nack@{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-ack\-\_\-nack}}
+\index{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-ack\-\_\-nack@{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-ack\-\_\-nack}!dprot.h@{dprot.\-h}}
+\subsubsection[{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-ack\-\_\-nack}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-ack\-\_\-nack (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{dprot_8h_a617f56a1395659cd976f4b6b17ac83f8}
+
+
+master node waiting for the ack/nack message from the slave 
+
+\begin{DoxyReturn}{Returns}
+result\-: 
+
+D\-P\-R\-O\-T\-\_\-\-A\-C\-K\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D -\/ ack was received 
+
+D\-P\-R\-O\-T\-\_\-\-N\-A\-C\-K\-\_\-\-A\-C\-C\-E\-P\-T\-E\-D -\/ nack was received 
+
+D\-P\-R\-O\-T\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R -\/ the crc/chs/xor didn't match or unexpected type of msg was received 
+\end{DoxyReturn}
+
+
+Definition at line 88 of file dprot\-\_\-master.\-c.
+
+\hypertarget{dprot_8h_a6aa9db5d360ad0c94b2becc3825dd06e}{\index{dprot.\-h@{dprot.\-h}!dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-data@{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-data}}
+\index{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-data@{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-data}!dprot.h@{dprot.\-h}}
+\subsubsection[{dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-master\-\_\-wait\-\_\-for\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{{\bf uint8\-\_\-t} $\ast$}]{buffer, }
+\item[{{\bf uint8\-\_\-t}}]{max\-\_\-len}
+\end{DoxyParamCaption}
+)}}\label{dprot_8h_a6aa9db5d360ad0c94b2becc3825dd06e}
+
+
+master node waiting a data message from the slave. 
+
+It can happen adter the master intiated data request transactions. \begin{DoxyReturn}{Returns}
+result\-: 
+
+D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R -\/ Success  D\-P\-R\-O\-T\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D -\/ data came corrupted -\/ length is too big 
+
+D\-P\-R\-O\-T\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R -\/ checking error 
+
+D\-P\-R\-O\-T\-\_\-\-L\-O\-G\-I\-C\-A\-L\-\_\-\-E\-R\-R\-O\-R -\/ the incoming frame didn't contain data type of message 
+\end{DoxyReturn}
+
+
+Definition at line 19 of file dprot\-\_\-master.\-c.
+
+\hypertarget{dprot_8h_a905d476e97295bb55becd22f2f333924}{\index{dprot.\-h@{dprot.\-h}!dprot\-\_\-slave\-\_\-init\-\_\-protocol@{dprot\-\_\-slave\-\_\-init\-\_\-protocol}}
+\index{dprot\-\_\-slave\-\_\-init\-\_\-protocol@{dprot\-\_\-slave\-\_\-init\-\_\-protocol}!dprot.h@{dprot.\-h}}
+\subsubsection[{dprot\-\_\-slave\-\_\-init\-\_\-protocol}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-slave\-\_\-init\-\_\-protocol (
+\begin{DoxyParamCaption}
+\item[{{\bf fn\-\_\-put\-\_\-char}}]{put\-\_\-function, }
+\item[{{\bf fn\-\_\-get\-\_\-char}}]{get\-\_\-function}
+\end{DoxyParamCaption}
+)}}\label{dprot_8h_a905d476e97295bb55becd22f2f333924}
+
+
+Initializing the slave side protocol of the d\-Prot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em put\-\_\-function} & the 'putchar' function to be assigned to the lower layers \\
+\hline
+{\em get\-\_\-function} & the 'getchar' function to be assigned to the lower layers\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success (D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R), error otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 7 of file dprot\-\_\-slave.\-c.
+
+\hypertarget{dprot_8h_a217093cf6ad27ebbdf52941a386bb393}{\index{dprot.\-h@{dprot.\-h}!dprot\-\_\-slave\-\_\-send\-\_\-ack@{dprot\-\_\-slave\-\_\-send\-\_\-ack}}
+\index{dprot\-\_\-slave\-\_\-send\-\_\-ack@{dprot\-\_\-slave\-\_\-send\-\_\-ack}!dprot.h@{dprot.\-h}}
+\subsubsection[{dprot\-\_\-slave\-\_\-send\-\_\-ack}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-slave\-\_\-send\-\_\-ack (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{dprot_8h_a217093cf6ad27ebbdf52941a386bb393}
+
+
+d\-Prot slave sending ack to the master 
+
+\begin{DoxyReturn}{Returns}
+success (D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R), error otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 132 of file dprot\-\_\-slave.\-c.
+
+\hypertarget{dprot_8h_a4e228c8d4ed029cff858fbf658740fda}{\index{dprot.\-h@{dprot.\-h}!dprot\-\_\-slave\-\_\-send\-\_\-data\-\_\-msg@{dprot\-\_\-slave\-\_\-send\-\_\-data\-\_\-msg}}
+\index{dprot\-\_\-slave\-\_\-send\-\_\-data\-\_\-msg@{dprot\-\_\-slave\-\_\-send\-\_\-data\-\_\-msg}!dprot.h@{dprot.\-h}}
+\subsubsection[{dprot\-\_\-slave\-\_\-send\-\_\-data\-\_\-msg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-slave\-\_\-send\-\_\-data\-\_\-msg (
+\begin{DoxyParamCaption}
+\item[{{\bf uint8\-\_\-t} $\ast$}]{buffer, }
+\item[{{\bf uint8\-\_\-t}}]{len}
+\end{DoxyParamCaption}
+)}}\label{dprot_8h_a4e228c8d4ed029cff858fbf658740fda}
+
+
+d\-Prot slave send data to the master This function will be always conducted by the slave in order to send back data to the initiator (master) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pre-\/allocated} & buffer to be sent to the master \\
+\hline
+{\em the} & number of bytes of buffer to be sent\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+operation result\-: 
+
+D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R -\/ Success 
+
+D\-P\-R\-O\-T\-\_\-\-M\-S\-G\-\_\-\-S\-I\-Z\-E\-\_\-\-E\-R\-R\-O\-R -\/ the requested buffer is too big for a single transaction. 
+\end{DoxyReturn}
+
+
+Definition at line 99 of file dprot\-\_\-slave.\-c.
+
+\hypertarget{dprot_8h_a24cca4088e15cad41bada0051d1f3d60}{\index{dprot.\-h@{dprot.\-h}!dprot\-\_\-slave\-\_\-send\-\_\-nack@{dprot\-\_\-slave\-\_\-send\-\_\-nack}}
+\index{dprot\-\_\-slave\-\_\-send\-\_\-nack@{dprot\-\_\-slave\-\_\-send\-\_\-nack}!dprot.h@{dprot.\-h}}
+\subsubsection[{dprot\-\_\-slave\-\_\-send\-\_\-nack}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-slave\-\_\-send\-\_\-nack (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{dprot_8h_a24cca4088e15cad41bada0051d1f3d60}
+
+
+d\-Prot slave sends 'nack' to the master (message error) 
+
+\begin{DoxyReturn}{Returns}
+success (D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R), error otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 147 of file dprot\-\_\-slave.\-c.
+
+\hypertarget{dprot_8h_ad4d91e34fef0ad41e2e5b30b795eb3c8}{\index{dprot.\-h@{dprot.\-h}!dprot\-\_\-slave\-\_\-wait\-\_\-for\-\_\-msg@{dprot\-\_\-slave\-\_\-wait\-\_\-for\-\_\-msg}}
+\index{dprot\-\_\-slave\-\_\-wait\-\_\-for\-\_\-msg@{dprot\-\_\-slave\-\_\-wait\-\_\-for\-\_\-msg}!dprot.h@{dprot.\-h}}
+\subsubsection[{dprot\-\_\-slave\-\_\-wait\-\_\-for\-\_\-msg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} dprot\-\_\-slave\-\_\-wait\-\_\-for\-\_\-msg (
+\begin{DoxyParamCaption}
+\item[{{\bf uint8\-\_\-t} $\ast$}]{buffer, }
+\item[{{\bf uint8\-\_\-t}}]{max\-\_\-len}
+\end{DoxyParamCaption}
+)}}\label{dprot_8h_ad4d91e34fef0ad41e2e5b30b795eb3c8}
+
+
+d\-Prot slave waits for data message. This function analyzes the received message types and automatically filters them (sends back arp responses and sync stuff) until a data message arrives. This message is returned to the higher layer. The input 'buffer' and 'max\-\_\-len' take into account the additional 'type', 'length' and 'checking\-\_\-byte' which accumulate to additional 3 bytes. That means that the maximum possible 'payload length' is 256-\/3=253 bytes per transaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pre-\/allocated} & buffer to store the rx elements \\
+\hline
+{\em maximal} & length of buffer.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the result\-: 
+
+D\-P\-R\-O\-T\-\_\-\-N\-O\-\_\-\-E\-R\-R\-O\-R (success) 
+
+D\-P\-R\-O\-T\-\_\-\-F\-R\-A\-M\-I\-N\-G\-\_\-\-E\-R\-R\-O\-R (faming error occured) 
+
+D\-P\-R\-O\-T\-\_\-\-D\-A\-T\-A\-\_\-\-E\-R\-R\-O\-R (the crc/chs/xor didn't match) 
+
+D\-P\-R\-O\-T\-\_\-\-L\-O\-G\-I\-C\-A\-L\-\_\-\-E\-R\-R\-O\-R -\/ sync/length or something else went wrong 
+\end{DoxyReturn}
+
+
+Definition at line 19 of file dprot\-\_\-slave.\-c.
+

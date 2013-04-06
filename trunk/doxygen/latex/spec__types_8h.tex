@@ -1,0 +1,84 @@
+\hypertarget{spec__types_8h}{\section{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/spec\-\_\-types.h File Reference}
+\label{spec__types_8h}\index{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/spec\-\_\-types.\-h@{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/spec\-\_\-types.\-h}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned char \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t}
+\item 
+typedef unsigned short \hyperlink{spec__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\-\_\-t}
+\item 
+typedef unsigned int \hyperlink{spec__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t}
+\item 
+typedef short \hyperlink{spec__types_8h_aa343fa3b3d06292b959ffdd4c4703b06}{int16\-\_\-t}
+\item 
+typedef int \hyperlink{spec__types_8h_a32f2e37ee053cf2ce8ca28d1f74630e5}{int32\-\_\-t}
+\item 
+typedef void($\ast$ \hyperlink{spec__types_8h_a37f4bf12d02c5a8034ea7842fc44139e}{fn\-\_\-put\-\_\-char} )(\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} c)
+\item 
+typedef \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t}($\ast$ \hyperlink{spec__types_8h_ae27f995dac682449dbaccadf5e5f8f2f}{fn\-\_\-get\-\_\-char} )(void)
+\item 
+typedef \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t}($\ast$ \hyperlink{spec__types_8h_ace37bdc988d620cf5545d6be5c8df9a6}{fn\-\_\-get\-\_\-char\-\_\-to} )(\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} to, \hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} $\ast$cout)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{spec__types_8h_ae27f995dac682449dbaccadf5e5f8f2f}{\index{spec\-\_\-types.\-h@{spec\-\_\-types.\-h}!fn\-\_\-get\-\_\-char@{fn\-\_\-get\-\_\-char}}
+\index{fn\-\_\-get\-\_\-char@{fn\-\_\-get\-\_\-char}!spec_types.h@{spec\-\_\-types.\-h}}
+\subsubsection[{fn\-\_\-get\-\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}fn\-\_\-get\-\_\-char}}\label{spec__types_8h_ae27f995dac682449dbaccadf5e5f8f2f}
+this pointer to function should get a single character from the input. This call is blocking -\/ the function will wait until a single character will be available in the input stream.
+
+this pointer to function should get a single character from the input. This call is blocking U\-N\-T\-I\-L it reaches the timeout \mbox{[}ms\mbox{]} specified in 'to'. The returned value is 1 (got a single char) or 0 (exited on timeout). The incoming character is written in 'cout' 
+
+Definition at line 34 of file spec\-\_\-types.\-h.
+
+\hypertarget{spec__types_8h_ace37bdc988d620cf5545d6be5c8df9a6}{\index{spec\-\_\-types.\-h@{spec\-\_\-types.\-h}!fn\-\_\-get\-\_\-char\-\_\-to@{fn\-\_\-get\-\_\-char\-\_\-to}}
+\index{fn\-\_\-get\-\_\-char\-\_\-to@{fn\-\_\-get\-\_\-char\-\_\-to}!spec_types.h@{spec\-\_\-types.\-h}}
+\subsubsection[{fn\-\_\-get\-\_\-char\-\_\-to}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf uint8\-\_\-t}($\ast$ fn\-\_\-get\-\_\-char\-\_\-to)({\bf uint8\-\_\-t} to, {\bf uint8\-\_\-t} $\ast$cout)}}\label{spec__types_8h_ace37bdc988d620cf5545d6be5c8df9a6}
+
+
+Definition at line 44 of file spec\-\_\-types.\-h.
+
+\hypertarget{spec__types_8h_a37f4bf12d02c5a8034ea7842fc44139e}{\index{spec\-\_\-types.\-h@{spec\-\_\-types.\-h}!fn\-\_\-put\-\_\-char@{fn\-\_\-put\-\_\-char}}
+\index{fn\-\_\-put\-\_\-char@{fn\-\_\-put\-\_\-char}!spec_types.h@{spec\-\_\-types.\-h}}
+\subsubsection[{fn\-\_\-put\-\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}fn\-\_\-put\-\_\-char}}\label{spec__types_8h_a37f4bf12d02c5a8034ea7842fc44139e}
+this pointer to function should send a single character and returns immediatelly 
+
+Definition at line 25 of file spec\-\_\-types.\-h.
+
+\hypertarget{spec__types_8h_aa343fa3b3d06292b959ffdd4c4703b06}{\index{spec\-\_\-types.\-h@{spec\-\_\-types.\-h}!int16\-\_\-t@{int16\-\_\-t}}
+\index{int16\-\_\-t@{int16\-\_\-t}!spec_types.h@{spec\-\_\-types.\-h}}
+\subsubsection[{int16\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef short {\bf int16\-\_\-t}}}\label{spec__types_8h_aa343fa3b3d06292b959ffdd4c4703b06}
+
+
+Definition at line 14 of file spec\-\_\-types.\-h.
+
+\hypertarget{spec__types_8h_a32f2e37ee053cf2ce8ca28d1f74630e5}{\index{spec\-\_\-types.\-h@{spec\-\_\-types.\-h}!int32\-\_\-t@{int32\-\_\-t}}
+\index{int32\-\_\-t@{int32\-\_\-t}!spec_types.h@{spec\-\_\-types.\-h}}
+\subsubsection[{int32\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef int {\bf int32\-\_\-t}}}\label{spec__types_8h_a32f2e37ee053cf2ce8ca28d1f74630e5}
+
+
+Definition at line 15 of file spec\-\_\-types.\-h.
+
+\hypertarget{spec__types_8h_a273cf69d639a59973b6019625df33e30}{\index{spec\-\_\-types.\-h@{spec\-\_\-types.\-h}!uint16\-\_\-t@{uint16\-\_\-t}}
+\index{uint16\-\_\-t@{uint16\-\_\-t}!spec_types.h@{spec\-\_\-types.\-h}}
+\subsubsection[{uint16\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned short {\bf uint16\-\_\-t}}}\label{spec__types_8h_a273cf69d639a59973b6019625df33e30}
+
+
+Definition at line 11 of file spec\-\_\-types.\-h.
+
+\hypertarget{spec__types_8h_a435d1572bf3f880d55459d9805097f62}{\index{spec\-\_\-types.\-h@{spec\-\_\-types.\-h}!uint32\-\_\-t@{uint32\-\_\-t}}
+\index{uint32\-\_\-t@{uint32\-\_\-t}!spec_types.h@{spec\-\_\-types.\-h}}
+\subsubsection[{uint32\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned int {\bf uint32\-\_\-t}}}\label{spec__types_8h_a435d1572bf3f880d55459d9805097f62}
+
+
+Definition at line 12 of file spec\-\_\-types.\-h.
+
+\hypertarget{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{\index{spec\-\_\-types.\-h@{spec\-\_\-types.\-h}!uint8\-\_\-t@{uint8\-\_\-t}}
+\index{uint8\-\_\-t@{uint8\-\_\-t}!spec_types.h@{spec\-\_\-types.\-h}}
+\subsubsection[{uint8\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned char {\bf uint8\-\_\-t}}}\label{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}
+
+
+Definition at line 10 of file spec\-\_\-types.\-h.
+

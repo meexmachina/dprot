@@ -1,0 +1,131 @@
+\hypertarget{checking_8h}{\section{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/checking.h File Reference}
+\label{checking_8h}\index{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/checking.\-h@{/\-Users/davidmichaeli/\-Dropbox/\-Projects/communications/dprot\-\_\-sim/dprot\-\_\-sim/checking.\-h}}
+}
+{\ttfamily \#include \char`\"{}spec\-\_\-types.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{checking_8h_ac080cfc461d09729e6721572f468ad3c}{crc8\-\_\-add\-\_\-byte}(c, d)~(c)=((\hyperlink{checking_8h_ac3156365edfcce52b85dcaa2d310d481}{crc8\-\_\-table}\mbox{[}(c) $^\wedge$ (d)\mbox{]}) \& 0xff)
+\begin{DoxyCompactList}\small\item\em update macro for crc8 type of checking \end{DoxyCompactList}\item 
+\#define \hyperlink{checking_8h_afa991803eaf97ade63960d6942b135b8}{chs8\-\_\-add\-\_\-byte}(c, d)~(c)=(((c)+(d))\&0xff)
+\begin{DoxyCompactList}\small\item\em update macro for checksum-\/8 type of checking \end{DoxyCompactList}\item 
+\#define \hyperlink{checking_8h_a4ac1e669609c7e25d8acec71bf4ad477}{xor8\-\_\-add\-\_\-byte}(c, d)~(c)$^\wedge$=(d)
+\begin{DoxyCompactList}\small\item\em update macro for xor8 type of checking \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{checking_8h_a6463c57ed4bd9bfd98d86b1b8dc404c5}{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-T\-Y\-P\-E} \{ \hyperlink{checking_8h_a6463c57ed4bd9bfd98d86b1b8dc404c5a3d76908fc5007ccc2f9049c7f0a77f94}{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-C\-R\-C8} = 0, 
+\hyperlink{checking_8h_a6463c57ed4bd9bfd98d86b1b8dc404c5ad058a91080ea0c09010036cac5865e4e}{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-C\-H\-S8} = 1, 
+\hyperlink{checking_8h_a6463c57ed4bd9bfd98d86b1b8dc404c5a332e53e0d7f629296000ee3adc231b32}{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-X\-O\-R8} = 2
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{checking_8h_aba8667317e6415426d1b14d8c7f3c3b5}{init\-\_\-crc8} ()
+\begin{DoxyCompactList}\small\item\em init the crc8 table -\/ needed before any usage of the crc generation \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{spec__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\-\_\-t} \hyperlink{checking_8h_ac3156365edfcce52b85dcaa2d310d481}{crc8\-\_\-table} \mbox{[}256\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{checking_8h_afa991803eaf97ade63960d6942b135b8}{\index{checking.\-h@{checking.\-h}!chs8\-\_\-add\-\_\-byte@{chs8\-\_\-add\-\_\-byte}}
+\index{chs8\-\_\-add\-\_\-byte@{chs8\-\_\-add\-\_\-byte}!checking.h@{checking.\-h}}
+\subsubsection[{chs8\-\_\-add\-\_\-byte}]{\setlength{\rightskip}{0pt plus 5cm}\#define chs8\-\_\-add\-\_\-byte(
+\begin{DoxyParamCaption}
+\item[{}]{c, }
+\item[{}]{d}
+\end{DoxyParamCaption}
+)~(c)=(((c)+(d))\&0xff)}}\label{checking_8h_afa991803eaf97ade63960d6942b135b8}
+
+
+update macro for checksum-\/8 type of checking 
+
+
+
+Definition at line 18 of file checking.\-h.
+
+\hypertarget{checking_8h_ac080cfc461d09729e6721572f468ad3c}{\index{checking.\-h@{checking.\-h}!crc8\-\_\-add\-\_\-byte@{crc8\-\_\-add\-\_\-byte}}
+\index{crc8\-\_\-add\-\_\-byte@{crc8\-\_\-add\-\_\-byte}!checking.h@{checking.\-h}}
+\subsubsection[{crc8\-\_\-add\-\_\-byte}]{\setlength{\rightskip}{0pt plus 5cm}\#define crc8\-\_\-add\-\_\-byte(
+\begin{DoxyParamCaption}
+\item[{}]{c, }
+\item[{}]{d}
+\end{DoxyParamCaption}
+)~(c)=(({\bf crc8\-\_\-table}\mbox{[}(c) $^\wedge$ (d)\mbox{]}) \& 0xff)}}\label{checking_8h_ac080cfc461d09729e6721572f468ad3c}
+
+
+update macro for crc8 type of checking 
+
+
+
+Definition at line 13 of file checking.\-h.
+
+\hypertarget{checking_8h_a4ac1e669609c7e25d8acec71bf4ad477}{\index{checking.\-h@{checking.\-h}!xor8\-\_\-add\-\_\-byte@{xor8\-\_\-add\-\_\-byte}}
+\index{xor8\-\_\-add\-\_\-byte@{xor8\-\_\-add\-\_\-byte}!checking.h@{checking.\-h}}
+\subsubsection[{xor8\-\_\-add\-\_\-byte}]{\setlength{\rightskip}{0pt plus 5cm}\#define xor8\-\_\-add\-\_\-byte(
+\begin{DoxyParamCaption}
+\item[{}]{c, }
+\item[{}]{d}
+\end{DoxyParamCaption}
+)~(c)$^\wedge$=(d)}}\label{checking_8h_a4ac1e669609c7e25d8acec71bf4ad477}
+
+
+update macro for xor8 type of checking 
+
+
+
+Definition at line 23 of file checking.\-h.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{checking_8h_a6463c57ed4bd9bfd98d86b1b8dc404c5}{\index{checking.\-h@{checking.\-h}!C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-T\-Y\-P\-E@{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-T\-Y\-P\-E}}
+\index{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-T\-Y\-P\-E@{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-T\-Y\-P\-E}!checking.h@{checking.\-h}}
+\subsubsection[{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-T\-Y\-P\-E}}}\label{checking_8h_a6463c57ed4bd9bfd98d86b1b8dc404c5}
+Different checking typed available \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-C\-R\-C8@{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-C\-R\-C8}!checking.\-h@{checking.\-h}}\index{checking.\-h@{checking.\-h}!C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-C\-R\-C8@{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-C\-R\-C8}}\item[{\em 
+\hypertarget{checking_8h_a6463c57ed4bd9bfd98d86b1b8dc404c5a3d76908fc5007ccc2f9049c7f0a77f94}{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-C\-R\-C8}\label{checking_8h_a6463c57ed4bd9bfd98d86b1b8dc404c5a3d76908fc5007ccc2f9049c7f0a77f94}
+}]8bit crc calculation \index{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-C\-H\-S8@{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-C\-H\-S8}!checking.\-h@{checking.\-h}}\index{checking.\-h@{checking.\-h}!C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-C\-H\-S8@{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-C\-H\-S8}}\item[{\em 
+\hypertarget{checking_8h_a6463c57ed4bd9bfd98d86b1b8dc404c5ad058a91080ea0c09010036cac5865e4e}{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-C\-H\-S8}\label{checking_8h_a6463c57ed4bd9bfd98d86b1b8dc404c5ad058a91080ea0c09010036cac5865e4e}
+}]8bit checksum -\/ simply addition of all bytes \index{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-X\-O\-R8@{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-X\-O\-R8}!checking.\-h@{checking.\-h}}\index{checking.\-h@{checking.\-h}!C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-X\-O\-R8@{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-X\-O\-R8}}\item[{\em 
+\hypertarget{checking_8h_a6463c57ed4bd9bfd98d86b1b8dc404c5a332e53e0d7f629296000ee3adc231b32}{C\-H\-E\-C\-K\-I\-N\-G\-\_\-\-X\-O\-R8}\label{checking_8h_a6463c57ed4bd9bfd98d86b1b8dc404c5a332e53e0d7f629296000ee3adc231b32}
+}]8bit xoring of each byte in message \end{description}
+\end{Desc}
+
+
+Definition at line 28 of file checking.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{checking_8h_aba8667317e6415426d1b14d8c7f3c3b5}{\index{checking.\-h@{checking.\-h}!init\-\_\-crc8@{init\-\_\-crc8}}
+\index{init\-\_\-crc8@{init\-\_\-crc8}!checking.h@{checking.\-h}}
+\subsubsection[{init\-\_\-crc8}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-crc8 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{checking_8h_aba8667317e6415426d1b14d8c7f3c3b5}
+
+
+init the crc8 table -\/ needed before any usage of the crc generation 
+
+
+
+Definition at line 7 of file checking.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{checking_8h_ac3156365edfcce52b85dcaa2d310d481}{\index{checking.\-h@{checking.\-h}!crc8\-\_\-table@{crc8\-\_\-table}}
+\index{crc8\-\_\-table@{crc8\-\_\-table}!checking.h@{checking.\-h}}
+\subsubsection[{crc8\-\_\-table}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\-\_\-t} crc8\-\_\-table\mbox{[}256\mbox{]}}}\label{checking_8h_ac3156365edfcce52b85dcaa2d310d481}
+
+
+Definition at line 4 of file checking.\-c.
+
