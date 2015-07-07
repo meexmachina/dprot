@@ -1,0 +1,1 @@
+Master-Slave communication with data checking for light weight applications (microcontrollers)
